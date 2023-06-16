@@ -1,83 +1,18 @@
 import { TodoItem } from "./LocalTodoItem";
 import Link from "next/link";
 import { useState, useEffect } from 'react'
-
-interface TodoData {
-  id: number;
-  content: string;
-  isCompeleted: boolean;
-}
-
-async function toggleTodo(id: number, isCompeleted: boolean) {
-  try {
-    const response = await fetch(`/api/todo/${id}`, {
-      method: 'PUT', 
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({id, isCompeleted, title: 'toogle', content:'content'})
-    });
-    if (!response.ok) {
-      throw new Error('Failed to put todos');
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-async function deleteTodo(id: number) {
-  try {
-    const response = await fetch(`/api/todo/${id}`, {
-      method: 'DELETE'
-    });
-    if (!response.ok) {
-      throw new Error('Failed to fetch todos');
-    }
-  } catch (error) {
-    console.error(error);
-  }
-
-}
+import { toggleTodo, deleteTodo, fetchTodos, addTodo } from '../../lib/todo'
+import { TodoData } from "@/type/TodoData";
 
 
 export default function LocalTodoList() {
-  const [todos, setTodos] = useState<TodoData[]>([])
+  const [todos, setTodos] = useState<TodoData[] | undefined>([])
   const [newTaskText, setNewTaskText] = useState<string>('')
   useEffect(() => {
-    fetchTodos()
-  }, [])
-  
-  async function fetchTodos() {
-    try {
-      const response = await fetch('/api/todo');
-      if (!response.ok) {
-        throw new Error('Failed to fetch todos');
-      }
-      const todos = await response.json()
-      setTodos(todos)
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  const addTodo = async (taskText: string) => {
-    let content = taskText.trim()
-    if (content.length) {
-      const response = await fetch(`/api/todo`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          content,
-          title: content
-        })
-      })
-      const todo = await response.json()
-      setTodos([...todos, todo])
-    }
-  }
-
+    fetchTodos().then((data: TodoData[] | undefined) => {
+      setTodos(data)
+    })
+  }, [])  
   return <>
     <header className="flex justify-between mb-4 items-center">
       <h1 className="text-2xl">Todo List</h1>
@@ -91,7 +26,10 @@ export default function LocalTodoList() {
             setNewTaskText(e.target.value)
           }}
         />
-        <button className="btn-black" onClick={() => addTodo(newTaskText)}>
+        <button className="btn-black" onClick={async () => {
+            const todo = await addTodo(newTaskText)
+            setTodos([...todos, todo])
+          }}>
           Add
         </button>
       </div>
