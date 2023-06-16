@@ -32,7 +32,7 @@ export async function deleteTodo(id: number) {
 
 }
 
-export async function fetchTodos(): Promise<TodoData[] | undefined>{
+export async function fetchTodos(): Promise<TodoData[]>{
   try {
     const response = await fetch('/api/todo');
     if (!response.ok) {
@@ -42,6 +42,7 @@ export async function fetchTodos(): Promise<TodoData[] | undefined>{
     return todos
   } catch (error) {
     console.error(error)
+    return []
   }
 }
 

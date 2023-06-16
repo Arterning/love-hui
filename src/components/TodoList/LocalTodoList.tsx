@@ -5,10 +5,10 @@ import { TodoData } from "@/type/TodoData";
 
 
 export default function LocalTodoList() {
-  const [todos, setTodos] = useState<TodoData[] | undefined>([])
+  const [todos, setTodos] = useState<TodoData[]>([])
   const [newTaskText, setNewTaskText] = useState<string>('')
   useEffect(() => {
-    fetchTodos().then((data: TodoData[] | undefined) => {
+    fetchTodos().then((data: TodoData[]) => {
       setTodos(data)
     })
   }, [])  
