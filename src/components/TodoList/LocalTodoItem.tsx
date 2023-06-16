@@ -13,7 +13,7 @@ export function TodoItem({ id, title, complete, toggleTodo, deleteTodo }: TodoIt
 
     const [showElement, hideTodo] = useState(true);
     
-    const handleElementClick = () => {
+    const removeTodo = () => {
         hideTodo(false);
         deleteTodo(id);
     };
@@ -35,7 +35,7 @@ export function TodoItem({ id, title, complete, toggleTodo, deleteTodo }: TodoIt
 
                     <label
                         className="cursor-pointer border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
-                        onClick={handleElementClick}
+                        onClick={removeTodo}
                     >
                         Delete
                     </label>

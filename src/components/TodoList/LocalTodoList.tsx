@@ -10,20 +10,34 @@ interface TodoData {
 }
 
 async function toggleTodo(id: number, isCompeleted: boolean) {
-  "use server"
   try {
-    await prisma.todo.update({ where: { id }, data: { isCompeleted } })
-    console.log(id, isCompeleted)
+    const response = await fetch(`/api/todo/${id}`, {
+      method: 'PUT', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({id, isCompeleted})
+    });
+    if (!response.ok) {
+      throw new Error('Failed to put todos');
+    }
   } catch (error) {
-    console.log(id, "deleted")
+    console.error(error);
   }
 }
 
 async function deleteTodo(id: number) {
-  "use server"
-  console.log('deleting', id)
+  try {
+    const response = await fetch(`/api/todo/${id}`, {
+      method: 'DELETE'
+    });
+    if (!response.ok) {
+      throw new Error('Failed to fetch todos');
+    }
+  } catch (error) {
+    console.error(error);
+  }
 
-  await prisma.todo.delete({ where: { id: id } })
 }
 
 export default function LocalTodoList() {
@@ -33,8 +47,16 @@ export default function LocalTodoList() {
   }, [])
   
   async function fetchTodos() {
-    const todos = await prisma.todo.findMany()
-    setTodos(todos)
+    try {
+      const response = await fetch('/api/todo');
+      if (!response.ok) {
+        throw new Error('Failed to fetch todos');
+      }
+      const todos = await response.json();
+      setTodos(todos)
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return <>
@@ -50,11 +72,11 @@ export default function LocalTodoList() {
     <ul className="pl-4" >
       {todos.map(todo => (
         <TodoItem 
-        id={todo.id}
-        title={todo.content}
-        complete={todo.isCompeleted}
-        toggleTodo={toggleTodo}
-        deleteTodo={deleteTodo}/>
+          id={todo.id}
+          title={todo.content}
+          complete={todo.isCompeleted}
+          toggleTodo={toggleTodo}
+          deleteTodo={deleteTodo}/>
       ))}
     </ul>
 
