@@ -1,5 +1,4 @@
 import { TodoItem } from "./LocalTodoItem";
-import { prisma } from "../../lib/prisma";
 import Link from "next/link";
 import { useState, useEffect } from 'react'
 
@@ -40,8 +39,10 @@ async function deleteTodo(id: number) {
 
 }
 
+
 export default function LocalTodoList() {
   const [todos, setTodos] = useState<TodoData[]>([])
+  const [newTaskText, setNewTaskText] = useState<string>('')
   useEffect(() => {
     fetchTodos()
   }, [])
@@ -52,16 +53,46 @@ export default function LocalTodoList() {
       if (!response.ok) {
         throw new Error('Failed to fetch todos');
       }
-      const todos = await response.json();
+      const todos = await response.json()
       setTodos(todos)
     } catch (error) {
       console.error(error);
     }
   }
 
+  const addTodo = async (taskText: string) => {
+    let content = taskText.trim()
+    if (content.length) {
+      const data = {
+        content,
+        title : 'title'
+      }
+      const response = await fetch(`/api/todo`, {
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      const todo = await response.json()
+      setTodos([...todos, todo])
+    }
+  }
+
   return <>
     <header className="flex justify-between mb-4 items-center">
-      <h1 className="text-2xl">Todos</h1>
+      <h1 className="text-2xl">Todo List</h1>
+      <div className="flex gap-2 my-2">
+        <input
+          className="rounded w-full p-2"
+          type="text"
+          placeholder="小慧代办列表"
+          value={newTaskText}
+          onChange={(e) => {
+            setNewTaskText(e.target.value)
+          }}
+        />
+        <button className="btn-black" onClick={() => addTodo(newTaskText)}>
+          Add
+        </button>
+      </div>
       <Link
         className="border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
         href="/new"

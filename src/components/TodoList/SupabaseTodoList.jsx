@@ -14,6 +14,8 @@ export default function Todos({ user }) {
     if (error) console.log('error', error)
     else setTodos(todos)
   }
+
+  
   const addTodo = async (taskText) => {
     let task = taskText.trim()
     if (task.length) {
