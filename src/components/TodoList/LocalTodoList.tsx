@@ -38,11 +38,12 @@ export default async function Home() {
     </header>
     <ul className="pl-4" >
       {todos.map(todo => (
-        <TodoItem key={todo.id}
-         title = {todo.content}
-         complete = {todo.isCompeleted}
-         toggleTodo = {toggleTodo} 
-         deleteTodo = {deleteTodo} />
+        <TodoItem 
+        id={todo.id}
+        title={todo.content}
+        complete={todo.isCompeleted}
+        toggleTodo={toggleTodo}
+        deleteTodo={deleteTodo}/>
       ))}
     </ul>
 
