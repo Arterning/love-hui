@@ -1,10 +1,12 @@
 import { TodoItem } from "./LocalTodoItem";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "../../lib/prisma";
 import Link from "next/link";
+import { useState, useEffect } from 'react'
 
-function getTodos() {
-  console.log(TodoItem)
-  return prisma.todo.findMany()
+interface TodoData {
+  id: number;
+  content: string;
+  isCompeleted: boolean;
 }
 
 async function toggleTodo(id: number, isCompeleted: boolean) {
@@ -24,8 +26,17 @@ async function deleteTodo(id: number) {
   await prisma.todo.delete({ where: { id: id } })
 }
 
-export default async function Home() {
-  const todos = await getTodos()
+export default function LocalTodoList() {
+  const [todos, setTodos] = useState<TodoData[]>([])
+  useEffect(() => {
+    fetchTodos()
+  }, [])
+  
+  async function fetchTodos() {
+    const todos = await prisma.todo.findMany()
+    setTodos(todos)
+  }
+
   return <>
     <header className="flex justify-between mb-4 items-center">
       <h1 className="text-2xl">Todos</h1>

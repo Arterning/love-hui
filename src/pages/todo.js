@@ -1,7 +1,7 @@
 import Header from '../components/Header'
 import Head from '../components/Head'
 import { supabase } from '../utils/initSupabase'
-import TodoList from '../components/TodoList/SupabaseTodoList'
+import TodoList from '../components/TodoList/LocalTodoList'
 
 export default function TodoPage() {
 
