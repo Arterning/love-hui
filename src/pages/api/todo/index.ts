@@ -20,15 +20,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
 async function createTodo(req: NextApiRequest, res: NextApiResponse) {
-  const { content } = req.body as Todo
-  console.log(req.body);
-  console.log(content);
-  console.log(req.body.content);
-  
+  const { title, content, isCompeleted } = req.body as Todo;
+  console.log(title, content, isCompeleted);
   
   const result = await prisima.todo.create({
     data: { 
-       content: 'content',
+       title,
+       content,
        isCompeleted: false
     }
   })

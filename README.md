@@ -7,3 +7,14 @@ Record story of XiaoHui
 - image gallery
 - score rank
 - dreaming item
+
+
+## prisima 
+just run 
+
+```
+npx prisma migrate dev --name init
+npx prisma migrate dev --name step1
+npx prisma migrate dev --name step2
+...
+```

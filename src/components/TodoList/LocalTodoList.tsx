@@ -15,7 +15,7 @@ async function toggleTodo(id: number, isCompeleted: boolean) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({id, isCompeleted})
+      body: JSON.stringify({id, isCompeleted, title: 'toogle', content:'content'})
     });
     if (!response.ok) {
       throw new Error('Failed to put todos');
@@ -63,13 +63,15 @@ export default function LocalTodoList() {
   const addTodo = async (taskText: string) => {
     let content = taskText.trim()
     if (content.length) {
-      const data = {
-        content,
-        title : 'title'
-      }
       const response = await fetch(`/api/todo`, {
         method: 'POST',
-        body: JSON.stringify(data)
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content,
+          title: content
+        })
       })
       const todo = await response.json()
       setTodos([...todos, todo])
