@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { supabase } from '../utils/initSupabase'
 
 export default function Todos({ user }) {
   const [todos, setTodos] = useState([])

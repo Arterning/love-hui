@@ -1,5 +1,6 @@
 /**
  * npx ts-node script.ts
+ * npx prisma studio to oepn studio
  */
 import { PrismaClient } from '@prisma/client'
 
