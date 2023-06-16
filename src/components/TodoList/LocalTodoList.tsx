@@ -1,5 +1,4 @@
 import { TodoItem } from "./LocalTodoItem";
-import Link from "next/link";
 import { useState, useEffect } from 'react'
 import { toggleTodo, deleteTodo, fetchTodos, addTodo } from '../../lib/todo'
 import { TodoData } from "@/type/TodoData";
@@ -33,12 +32,6 @@ export default function LocalTodoList() {
           Add
         </button>
       </div>
-      <Link
-        className="border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
-        href="/new"
-      >
-        New
-      </Link>
     </header>
     <ul className="pl-4" >
       {todos.map(todo => (
