@@ -22,7 +22,7 @@ export const HOME_SIDER_MENU_LIST = [
       },
       {
         path: '/home/todoList',
-        name: '活动清单',
+        name: '心愿清单',
       },
       {
         path: '/home/todayTask',

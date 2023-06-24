@@ -33,7 +33,7 @@ exports.messageType = {
   system: {
     welcome: {
       type: 0,
-      content: '欢迎来到Tomato Work, 这将为您提供一站式服务！'
+      content: '欢迎来到小慧管理系统, 这将为您提供一站式服务！'
     }
   }
 }

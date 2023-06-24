@@ -27,7 +27,7 @@ const PanelGroup = () => {
       path: '/home/todayTask'
     },
     {
-      title: '活动清单',
+      title: '心愿清单',
       total: '0',
       Icon: <FileTextFilled className="icon" />,
       path: '/home/todoList'

@@ -24,21 +24,6 @@
 
 
 
-## Todo list
-- [x] github登录
-- [x] 提醒事项
-- [x] 活动清单
-- [x] 今日待办
-- [x] 财务管理
-- [x] 公司单位
-- [x] 个人中心
-- [x] 我的备忘 - 支持Markdown & WYSIWYG
-- [x] 站内消息
-- [x] 邮件推送 - (github邮箱必须设为公开)
-- [x] 微信推送 - 感谢Server酱 (需要在个人中心设置sckey)
-- [x] 日志管理
-
-
 ## Build Setup
 - Node.js >= 14
 

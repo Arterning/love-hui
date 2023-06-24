@@ -118,19 +118,7 @@ const HomeHeader: React.FC<Props> = function ({
             </Badge>
           </li>
         </Popover>
-        <li onClick={handleFullscreen}>
-          {isFullscreen ? <FullscreenOutlined /> : <FullscreenExitOutlined />}
-        </li>
-        <li>
-          <a href={config.github.bug} target="_blank" rel="noopener noreferrer">
-            <BugFilled />
-          </a>
-        </li>
-        <li>
-          <a href={config.github.repositoryUrl} target="_blank" rel="noopener noreferrer">
-            <GithubOutlined />
-          </a>
-        </li>
+        
         <Popover
           placement="bottomRight"
           content={PopoverContent}
