@@ -16,7 +16,7 @@ export default defineConfig({
     port: 7001,
     proxy: {
       '/api': {
-        target: 'https://7003-arterning-pmsystemapi-jbijbofhjfx.ws-us100.gitpod.io',
+        target: 'https://7003-arterning-lovehui-xppmrwjjvrj.ws-us100.gitpod.io',
         changeOrigin: true,
       },
     }

@@ -32,7 +32,7 @@ const PopoverContent = (
 let captcha = randomCode()
 const LOGIN_NAME = localStorage.getItem(LOCAL_STORAGE.LOGIN_NAME) || ''
 
-const serverUrl = 'https://7003-arterning-pmsystemapi-jbijbofhjfx.ws-us100.gitpod.io/api'
+const serverUrl = 'https://7001-arterning-lovehui-xppmrwjjvrj.ws-us100.gitpod.io/api'
 const captchaUrl = serverUrl + '/captcha?code='
 
 function reloadCaptcha(e: any) {
