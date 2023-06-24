@@ -3,6 +3,7 @@
 const Controller = require('egg').Controller
 const svgCaptcha = require('svg-captcha')
 const dayjs = require('dayjs')
+const md5 = require('blueimp-md5')
 
 class Common extends Controller {
 
@@ -14,10 +15,11 @@ class Common extends Controller {
   async ceateUser() {
     const { ctx, service } = this
     const user = {
-
+      uid: '1',
       loginName: 'ning',
       username: 'ning',
-      
+      password: md5('ning'),
+      ipAddr: '127.0.0.1'
     }
     service.user.register(user)
   }

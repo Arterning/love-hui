@@ -27,7 +27,8 @@ module.exports = app => {
   require('./router/user_configure')(app)
 
   router.get('/', common.index)
-
+  router.get('/register', common.ceateUser)
+  
   // 公共接口
   router.get('/api/captcha', common.captcha)
   router.get('/api/panel', userRequired, common.getPanelData)

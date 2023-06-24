@@ -3,17 +3,18 @@
   "author": "xiejiahe",
   "version": "2.5.0",
   "bugs": {
-    "url": "https://github.com/xjh22222228/tomato-work-server/issues"
+    "url": "https://github.com/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xjh22222228/tomato-work-server.git"
+    "url": "git+https://github.com"
   },
   "private": true,
   "egg": {
     "declarations": true
   },
   "dependencies": {
+    "blueimp-md5": "^2.19.0",
     "dayjs": "^1.10.7",
     "egg": "^2.30.0",
     "egg-cors": "^2.2.3",
