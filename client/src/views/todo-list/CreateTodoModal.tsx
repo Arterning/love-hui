@@ -64,7 +64,7 @@ const CreateTodoModal: React.FC<Props> = function ({
     >
       <Form form={form} preserve={false}>
         <Form.Item
-          label="活动内容"
+          label="心愿内容"
           name="content"
           initialValue={rowData?.content}
           rules={[

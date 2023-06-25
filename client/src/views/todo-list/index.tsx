@@ -40,7 +40,7 @@ const TodoListPage = () => {
       width: 170
     },
     {
-      title: '活动内容',
+      title: '心愿内容',
       dataIndex: 'content',
       className: 'wbba wpr'
     },

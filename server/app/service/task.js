@@ -26,7 +26,7 @@ class TaskService extends Service {
     const { ctx } = this
     const uid = ctx.user.uid
     return ctx.model.Task.findAll({
-      where: { uid, ...where },
+      where: { uid },
       order: [
         ['createdAt', 'DESC']
       ]

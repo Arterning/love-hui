@@ -68,8 +68,9 @@ class TaskController extends Controller {
     }
 
     const { date, content, count } = ctx.request.body
+    console.log("ctx.user.id @@@", ctx.user.id);
     try {
-      await service.task.create(null, {
+      await service.task.create('1', {
         createdAt: date,
         content,
         count
