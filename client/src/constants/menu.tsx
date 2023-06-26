@@ -12,23 +12,19 @@ export const HOME_SIDER_MENU_LIST = [
     path: '/home/index',
   },
   {
-    path: '/home',
-    name: '代办和心愿',
+    path: '/home/reminder',
     icon: <FormOutlined />,
-    children: [
-      {
-        path: '/home/reminder',
-        name: '便签管理'
-      },
-      {
-        path: '/home/todoList',
-        name: '心愿清单',
-      },
-      {
-        path: '/home/todayTask',
-        name: '今日待办'
-      }
-    ]
+    name: '提醒事项'
+  },
+  {
+    path: '/home/todoList',
+    icon: <FormOutlined />,
+    name: '心愿清单',
+  },
+  {
+    path: '/home/todayTask',
+    icon: <FormOutlined />,
+    name: '今日待办'
   },
   {
     path: '',
@@ -59,6 +55,11 @@ export const HOME_SIDER_MENU_LIST = [
         name: '创建笔记',
       }
     ]
+  },
+  {
+    path: '/home/seee',
+    icon: <FormOutlined/>,
+    name: '积分排名'
   },
   {
     path: '/home/setting/base',

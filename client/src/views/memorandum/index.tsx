@@ -52,12 +52,19 @@ const MemorandumPage: React.FC = () => {
     .finally(() => setLoading(false))
   }
 
+
+  function createNew() {
+    navigate('/home/memorandum/create')
+  }
+
   useEffect(() => {
     getData()
   }, [])
 
   return (
-    <Spin spinning={loading} wrapperClassName="memorandum-spin">
+    <div>
+      <Button type="primary" onClick={createNew} style={{width:'100px'}}>新建笔记</Button>
+      <Spin spinning={loading} wrapperClassName="memorandum-spin">
       <div className="memorandum">
         {(list.length > 0) ? (
           <Row gutter={16} align="bottom">
@@ -98,6 +105,7 @@ const MemorandumPage: React.FC = () => {
         )}
       </div>
     </Spin>
+    </div>
   )
 }
 

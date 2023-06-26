@@ -12,13 +12,13 @@ const InnerMessagePage = () => {
   const tableRef = useRef<any>(null)
   const [selectedRowKeys, setSelectedRowKeys] = useState<string[]>([])
   const tableColumns = [
-    { title: '', dataIndex: 'hasRead', width: 12, className: 'unread-row',
+    { title: '', dataIndex: 'hasRead', width: 50, className: 'unread-row',
       render: (hasRead: boolean) => (
         !hasRead && <i className="unread-dot">●</i>
       )},
-    { title: '标题内容', dataIndex: 'content' },
-    { title: '提交时间', dataIndex: 'createdAt', width: 150 },
-    { title: '类型', dataIndex: 'title', width: 130 }
+    { title: '标题内容', dataIndex: 'content', width: 100 },
+    { title: '提交时间', dataIndex: 'createdAt', width: 100 },
+    { title: '类型', dataIndex: 'title', width: 100 }
   ]
 
   const getInnerMessage = useCallback((params?: object) => {
