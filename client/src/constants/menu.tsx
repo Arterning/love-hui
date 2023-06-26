@@ -57,7 +57,7 @@ export const HOME_SIDER_MENU_LIST = [
     ]
   },
   {
-    path: '/home/seee',
+    path: '/home/rank',
     icon: <FormOutlined/>,
     name: '积分排名'
   },

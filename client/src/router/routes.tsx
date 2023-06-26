@@ -19,6 +19,7 @@ import Log from '@/views/log'
 import CreateLog from '@/views/log/CreateLog'
 import codeContribute from '@/views/personal/CodeContribute'
 import gemContribute from '@/views/personal/GemContribute'
+import RankPage from '@/views/rank/Rank'
 
 const Base = lazy(() => import('@/views/setting/base'))
 const InnerMessage = lazy(() => import('@/views/setting/inner-message'))
@@ -153,6 +154,13 @@ export function MainRoutes() {
             title: 'gemContribute',
             requireAuth: true,
           }} />
+        },
+        {
+          path: 'rank',
+          element: <PrivateRoute element={RankPage} meta={{
+            title: 'rank',
+            requireAuth: true,
+          }}/>
         },
 
         // Setting
