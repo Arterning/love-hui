@@ -6,6 +6,7 @@ import qs from 'query-string'
 import md5 from 'blueimp-md5'
 import config from '@/config'
 import classNames from 'classnames'
+import CONFIG from '@/config'
 import { isEmpty } from 'lodash'
 import { Button, Input, message, Popover, Form } from 'antd'
 import { useNavigate, useLocation } from 'react-router-dom'
@@ -32,11 +33,11 @@ const PopoverContent = (
 let captcha = randomCode()
 const LOGIN_NAME = localStorage.getItem(LOCAL_STORAGE.LOGIN_NAME) || ''
 
-const serverUrl = 'https://7001-arterning-lovehui-xppmrwjjvrj.ws-us100.gitpod.io/api'
-const captchaUrl = serverUrl + '/captcha?code='
+const captchaUrl = CONFIG.http.baseURL + '/api/captcha?code='
 
 function reloadCaptcha(e: any) {
   captcha = randomCode()
+  console.log(captchaUrl);
   const url = captchaUrl + captcha
   e.target.src = url
 }
