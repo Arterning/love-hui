@@ -7,23 +7,40 @@ const md5 = require('blueimp-md5')
 
 class Common extends Controller {
 
+  /**
+   * 首页
+   * @returns {Promise<void>}
+   */
   async index() {
     const { ctx } = this
-    ctx.body = 'Welcome to Personal Management System !'
+    console.log("Welcome my friend Good Good")
+    ctx.body = 'Hello, Welcome to Personal Management System !!!'
   }
 
-  async ceateUser() {
+  /**
+   * 注册用户
+   * @returns {Promise<void>}
+   */
+  async createUser() {
     const { ctx, service } = this
+    const { name, email, password, uid } = ctx.request.body
     const user = {
-      uid: '1',
-      loginName: 'ning',
-      username: 'ning',
-      password: md5('ning'),
+      loginName: name,
+      username: name,
+      email,
+      uid,
+      password: md5(password),
       ipAddr: '127.0.0.1'
     }
-    service.user.register(user)
+    const result = service.user.register(user)
+    console.log(result)
+    ctx.body = result
   }
 
+  /**
+   * 验证码
+   * @returns {Promise<void>}
+   */
   async captcha() {
     const { ctx } = this
     const code = ctx.query.code || '1234'
@@ -33,7 +50,10 @@ class Common extends Controller {
     ctx.body = svg
   }
 
-  // 获取后台首页面板数据
+  /**
+   * 获取后台首页面板数据
+   * @returns {Promise<void>}
+   */
   async getPanelData() {
     const { ctx, service } = this
 

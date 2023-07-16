@@ -33,7 +33,7 @@ module.exports = appInfo => {
     passwordField: 'password'
   }
 
-  config.title = 'Tomato Work'
+  config.title = '小慧系统管理平台'
 
   // 数据库配置 [必须]
   config.sequelize = {
@@ -42,8 +42,9 @@ module.exports = appInfo => {
     host: '127.0.0.1',
     port: 3306,
     username: 'root',
-    password: 'root',
+    password: '123456',
     timezone: '+08:00'
+
   }
 
   // github配置信息 [可选, 默认使用作者的信息, 但启动端口不可修改]

@@ -6,20 +6,21 @@ class TaskController extends Controller {
   async index() {
     const { ctx, service, app } = this
     const { startDate, endDate } = ctx.query
-    const result = await service.task.findAllByUid({
+    const where = {
       [ctx.Op.and]: [
         app.Sequelize.where(
-          app.Sequelize.fn('DATE', app.Sequelize.col('created_at')),
-          '<=',
-          endDate
+            app.Sequelize.fn('DATE', app.Sequelize.col('created_at')),
+            '<=',
+            endDate
         ),
         app.Sequelize.where(
-          app.Sequelize.fn('DATE', app.Sequelize.col('created_at')),
-          '>=',
-          startDate
+            app.Sequelize.fn('DATE', app.Sequelize.col('created_at')),
+            '>=',
+            startDate
         )
       ]
-    })
+    }
+    const result = await service.task.findAllByUid(where)
 
     const data = {
       wait: [],

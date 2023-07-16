@@ -10,8 +10,8 @@ class ReminderController extends Controller {
       ctx.validate({
         pageSize: { type: 'number', convertType: 'number', required: false, default: 0 },
         pageNo: { type: 'number', convertType: 'number', required: false, default: 10 },
-        startDate: { type: 'date', required: false, default: new Date() },
-        endDate: { type: 'date', required: false, default: new Date() },
+        startDate: { type: 'date', required: false, default: '' },
+        endDate: { type: 'date', required: false, default: '' },
       }, ctx.query)
     } catch (e) {
       ctx.print = {
@@ -30,27 +30,38 @@ class ReminderController extends Controller {
       type
     } = ctx.query
 
+    console.log('@@@', startDate, endDate)
+
     try {
       const where = {
         type: Number(type) || undefined,
-        [ctx.Op.and]: [
-          app.Sequelize.where(
-            app.Sequelize.fn('DATE', app.Sequelize.col('created_at')),
-            '<=',
-            endDate
-          ),
-          app.Sequelize.where(
-            app.Sequelize.fn('DATE', app.Sequelize.col('created_at')),
-            '>=',
-            startDate
-          )
-        ]
+        [ctx.Op.and]: []
       }
+
+      if (endDate) {
+        where[ctx.Op.and].push(
+            app.Sequelize.where(
+                app.Sequelize.fn('DATE', app.Sequelize.col('created_at')),
+                '<=',
+                endDate
+            )
+        )
+      }
+
+      if (startDate) {
+        where[ctx.Op.and].push(
+            app.Sequelize.where(
+                app.Sequelize.fn('DATE', app.Sequelize.col('created_at')),
+                '>=',
+                startDate
+            )
+        )
+      }
+
       const result = await service.reminder.findAllByUid(null, where, {
         limit: pageSize,
         offset: pageNo
       })
-
       ctx.print = result
     } catch (err) {
       ctx.logger.error(err)
