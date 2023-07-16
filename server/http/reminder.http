@@ -1,0 +1,19 @@
+
+###
+GET http://localhost:7001/api/reminder?pageNo=0&pageSize=50
+Accept: application/json, text/plain, */*
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Cookie: EGG_SESS=ig5T9FT-pQIHWiYJy7sftX6Ff65IlC86hzUVW2rSwbQzD86Xe5O5zfjHvWyoJ00FN7viZkBOv6efSbuNy8q58MkOW7hYoHjWEtQkacvCPIOxexGEeB1FmiJy4EsJK4tvAGMQ8NR1iutOXepW4QH4u-Q91-X_tQVOs-BC52VeQPp2lqK_qNGF4hb5yT2asa1rSCtJScgO81gS5jtkekiNy-TJ4E0E5pqGVG__1b6mZPagViVLI1-5ZVFKZJt8uhNmCBmvzsV7hm2fJ1uArkTzruW-lljBUAR3v8aib1sAcGmJwz4TDxfWoklfGRufOFvIT02Ued1xFxDpKUfZCYXouHedKHW-KE9g-pIWia9nj18T8dKqVgoACUN1IKRTXYWaOzbgX_zLWJaLAhrwRh0thO_4hBs35BRqnWW3ctZGrpucyaRWOpYq13m0SPQpbYn-3BVV7BQmXtiXnokfVvnZsbq8WjFXVSmWRsVnTQnkh2E2tZcMJhH3fmoqW9z6Q8la2liTUeJH2PGeqTGSwNhrppGrleJ_Fqc3XLeT7_TZwzjlxoMqwRRcxeu1WIdWMvD36rMTLujxY3Hozywnz3XEkpMTPDa7VvJe7e9hIGGR27jKikuJZsi8itjr4c91Z9JSn7n1uSUHqbfz2r5Riit4N-Yk4wOjeqNVmtt6009k6dgEOpBpbHE3ibPXonA3A5t9
+Referer: http://localhost:7001/home/reminder
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+errorAlert: true
+isLoading: true
+sec-ch-ua: "Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+
+
