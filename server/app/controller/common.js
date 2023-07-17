@@ -55,11 +55,18 @@ class Common extends Controller {
    * @returns {Promise<void>}
    */
   async getPanelData() {
-    const { ctx, service } = this
+    const { ctx, service, app } = this
 
+    const today = dayjs().format('YYYY-MM-DD')
     let [price, todayTask, unfinishedTodoList, reminder] = await Promise.all([
       service.capitalFlow.findSumPriceByDate(dayjs().format('YYYY-MM-DD')),
-      service.task.findAllByUid({ type: { [ctx.Op.in]: [1, 2] } }),
+      service.task.findAllByUid({ type: { [ctx.Op.in]: [1, 2] },
+        [ctx.Op.and]: [
+          app.Sequelize.where(
+              app.Sequelize.fn('DATE', app.Sequelize.col('created_at')),
+              '=',
+              today
+          )]}),
       service.todoList.findUnfinishedByUid(),
       service.reminder.findAllByUid(null, { type: 1 })
     ])

@@ -28,9 +28,7 @@ class TaskService extends Service {
     return ctx.model.Task.findAll({
       where: {
         uid,
-        createdAt: {
-            ...where
-        }
+        ...where
       },
       order: [
         ['createdAt', 'DESC']

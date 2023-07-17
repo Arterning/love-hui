@@ -48,10 +48,10 @@ const PanelGroup = () => {
     serviceGetPanelData()
     .then(res => {
       const data = state.slice()
-      data[0].total = Number(res.consumption).toFixed(2)
-      data[1].total = res.todayTaskCount
-      data[2].total = res.unfinishedTodoListCount
-      data[3].total = res.reminderCount
+      data[0].total = Number(res.consumption).toFixed(2) //今日支出
+      data[1].total = res.todayTaskCount //今日待办
+      data[2].total = res.unfinishedTodoListCount //心愿清单
+      data[3].total = res.reminderCount //提醒事项
       setState(data)
     })
   }, [state])
