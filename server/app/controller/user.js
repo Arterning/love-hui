@@ -1,4 +1,6 @@
 'use strict'
+const md5 = require("blueimp-md5")
+
 /**
  * 用户管理
  * @type {Controller}
@@ -7,6 +9,26 @@
 const Controller = require('egg').Controller
 
 class UserController extends Controller {
+
+  /**
+   * 注册用户
+   * @returns {Promise<void>}
+   */
+  async createUser() {
+    const { ctx, service } = this
+    const { name, email, password, uid } = ctx.request.body
+    const user = {
+      loginName: name,
+      username: name,
+      email,
+      uid,
+      password: md5(password),
+      ipAddr: '127.0.0.1'
+    }
+    const result = service.user.register(user)
+    ctx.body = result
+  }
+
   async getUser() {
     const { ctx } = this
     ctx.print = { userInfo: ctx.user }

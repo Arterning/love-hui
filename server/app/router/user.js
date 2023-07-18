@@ -20,6 +20,7 @@ module.exports = app => {
   router.get('/api/passport/github/success', controller.user.passportSuccessCallback)
   router.post('/api/passport/local', localStrategy)
 
+  router.post('/api/register', controller.user.createUser)
   router.get('/api/user', userRequired, controller.user.getUser)
   router.get('/api/logout', userRequired, controller.user.logout)
   router.get('/api/accessToken', controller.user.accessToken)

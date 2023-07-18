@@ -3,7 +3,7 @@
 const Controller = require('egg').Controller
 const svgCaptcha = require('svg-captcha')
 const dayjs = require('dayjs')
-const md5 = require('blueimp-md5')
+
 
 class Common extends Controller {
 
@@ -15,26 +15,6 @@ class Common extends Controller {
     const { ctx } = this
     console.log("Welcome my friend Good Good")
     ctx.body = 'Hello, Welcome to Personal Management System !!!'
-  }
-
-  /**
-   * 注册用户
-   * @returns {Promise<void>}
-   */
-  async createUser() {
-    const { ctx, service } = this
-    const { name, email, password, uid } = ctx.request.body
-    const user = {
-      loginName: name,
-      username: name,
-      email,
-      uid,
-      password: md5(password),
-      ipAddr: '127.0.0.1'
-    }
-    const result = service.user.register(user)
-    console.log(result)
-    ctx.body = result
   }
 
   /**

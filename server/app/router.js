@@ -26,8 +26,8 @@ module.exports = app => {
   require('./router/user')(app)
   require('./router/user_configure')(app)
 
+  //测试
   router.get('/', common.index)
-  router.post('/register', common.createUser)
 
   // 公共接口
   router.get('/api/captcha', common.captcha)
