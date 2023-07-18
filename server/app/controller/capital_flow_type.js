@@ -2,6 +2,10 @@
 
 const Controller = require('egg').Controller
 
+/**
+ * 收支类型
+ * @type {number[]}
+ */
 const enumTypeValues = [1, 2]
 
 class CapitalFlowType extends Controller {

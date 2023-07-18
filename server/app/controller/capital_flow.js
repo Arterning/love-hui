@@ -2,6 +2,10 @@
 
 const Controller = require('egg').Controller
 
+
+/**
+ * 收入支出管理
+ */
 class CapitalFlow extends Controller {
 
   

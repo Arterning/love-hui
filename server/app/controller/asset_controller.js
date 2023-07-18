@@ -33,7 +33,7 @@ class AssetController extends Controller {
     async destroy() {
         const { ctx, service } = this
         const id = ctx.params.id
-    
+
         try {
           const result = await service.assetService.deleteById(id)
           ctx.print = { ...result, msg: '删除成功' }
