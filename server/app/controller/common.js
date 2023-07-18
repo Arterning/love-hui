@@ -67,7 +67,7 @@ class Common extends Controller {
               '=',
               today
           )]}),
-      service.todoList.findUnfinishedByUid(),
+      service.dreamList.findUnfinishedByUid(),
       service.reminder.findAllByUid(null, { type: 1 })
     ])
 

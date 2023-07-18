@@ -2,18 +2,18 @@
 
 const Service = require('egg').Service
 
-class TodoList extends Service {
+class DreamList extends Service {
 
   async create(data) {
     const { ctx } = this
     const uid = ctx.user.uid
-    return ctx.model.TodoList.create({ uid, ...data })
+    return ctx.model.DreamList.create({ uid, ...data })
   }
 
   async findAndCountAllByUid(options = {}) {
     const { ctx, app } = this
     const uid = ctx.user.uid
-    return ctx.model.TodoList.findAndCountAll({
+    return ctx.model.DreamList.findAndCountAll({
       where: {
         [ctx.Op.and]: [
           app.Sequelize.where(
@@ -40,7 +40,7 @@ class TodoList extends Service {
   async findUnfinishedByUid(options) {
     const { ctx } = this
     const uid = ctx.user.uid
-    return ctx.model.TodoList.findAndCountAll({
+    return ctx.model.DreamList.findAndCountAll({
       where: {
         status: 1,
         uid,
@@ -59,7 +59,7 @@ class TodoList extends Service {
     const { ctx } = this
     const uid = ctx.user.uid
     id = String(id).split(',')
-    return ctx.model.TodoList.destroy({ where: {
+    return ctx.model.DreamList.destroy({ where: {
       uid,
       id: {
         [ctx.Op.in]: id
@@ -73,7 +73,7 @@ class TodoList extends Service {
   async findOneByName(name) {
     const { ctx } = this
     const uid = ctx.user.uid
-    return ctx.model.TodoList.findOne({
+    return ctx.model.DreamList.findOne({
       where: { name, uid }
     })
   }
@@ -85,10 +85,10 @@ class TodoList extends Service {
   async updateById(id, updateFields) {
     const { ctx } = this
     const uid = ctx.user.uid
-    return ctx.model.TodoList.update(updateFields, {
+    return ctx.model.DreamList.update(updateFields, {
       where: { uid, id }
     })
   }
 }
 
-module.exports = TodoList
+module.exports = DreamList

@@ -1,5 +1,9 @@
 'use strict'
 
+/**
+ * 用户配置
+ * @type {Controller}
+ */
 const Controller = require('egg').Controller
 
 class UserConfigure extends Controller {

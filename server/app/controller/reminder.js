@@ -1,5 +1,8 @@
 'use strict'
-
+/**
+ * 提醒事项
+ * @type {Controller}
+ */
 const Controller = require('egg').Controller
 
 class ReminderController extends Controller {

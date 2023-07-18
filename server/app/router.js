@@ -17,7 +17,7 @@ module.exports = app => {
     capitalFlow,
     memorandum,
     innerMessage,
-    todoList,
+    dreamList,
     assetController,
     company,
     log
@@ -60,7 +60,7 @@ module.exports = app => {
   router.resources('innerMessage', '/api/innerMessage', userRequired, innerMessage)
 
   // 活动清单
-  router.resources('todoList', '/api/todoList', userRequired, todoList)
+  router.resources('todoList', '/api/todoList', userRequired, dreamList)
 
   // 公司单位
   router.resources('company', '/api/company', userRequired, company)

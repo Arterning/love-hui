@@ -1,8 +1,11 @@
 'use strict'
-
+/**
+ * 心愿清单
+ * @type {Controller}
+ */
 const Controller = require('egg').Controller
 
-class TodoList extends Controller {
+class DreamList extends Controller {
   async index() {
     const { ctx, service } = this
     try {
@@ -29,7 +32,7 @@ class TodoList extends Controller {
     } = ctx.query
 
     try {
-      const result = await service.todoList.findAndCountAllByUid({
+      const result = await service.dreamList.findAndCountAllByUid({
         offset: pageNo * pageSize,
         limit: (pageNo + 1) * pageSize,
         startDate,
@@ -46,7 +49,7 @@ class TodoList extends Controller {
     const { content } = ctx.request.body
 
     try {
-      const result = await service.todoList.create({ content })
+      const result = await service.dreamList.create({ content })
       ctx.print = {
         data: result,
         msg: '创建成功'
@@ -81,7 +84,7 @@ class TodoList extends Controller {
     }
 
     try {
-      await service.todoList.updateById(id, data)
+      await service.dreamList.updateById(id, data)
       ctx.print = { msg: '更新成功' }
     } catch (e) {
       ctx.print = {
@@ -95,9 +98,9 @@ class TodoList extends Controller {
   async destroy() {
     const { ctx, service } = this
     const id = ctx.params.id
-    await service.todoList.deleteById(id)
+    await service.dreamList.deleteById(id)
     ctx.print = { msg: '删除成功' }
   }
 }
 
-module.exports = TodoList
+module.exports = DreamList

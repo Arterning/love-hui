@@ -1,5 +1,8 @@
 'use strict'
-
+/**
+ * 笔记管理
+ * @type {Controller}
+ */
 const Controller = require('egg').Controller
 
 class Memorandum extends Controller {

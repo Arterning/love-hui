@@ -1,4 +1,8 @@
 'use strict'
+/**
+ * 系统管理
+ * @type {Controller}
+ */
 
 const Controller = require('egg').Controller
 const os = require('os')

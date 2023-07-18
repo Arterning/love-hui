@@ -1,5 +1,9 @@
 'use strict'
 
+/**
+ * 代办管理
+ * @type {Controller}
+ */
 const Controller = require('egg').Controller
 
 class TaskController extends Controller {

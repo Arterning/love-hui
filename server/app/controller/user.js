@@ -1,4 +1,8 @@
 'use strict'
+/**
+ * 用户管理
+ * @type {Controller}
+ */
 
 const Controller = require('egg').Controller
 
