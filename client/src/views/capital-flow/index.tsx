@@ -254,12 +254,10 @@ const CapitalFlowPage: React.FC = function() {
 
       case FilterType.LastWeek:
         date[0] = dayjs(
-          dayjs()
+          dayjs(startDate)
             .subtract(7, 'days')
-            .format(FORMAT_DATE),
-          FORMAT_DATE
-        )
-        date[1] = dayjs(new Date(), FORMAT_DATE)
+            .format(FORMAT_DATE), FORMAT_DATE)
+        date[1] = dayjs(dayjs().format(FORMAT_DATE), FORMAT_DATE)
         break
 
       case FilterType.PrevMonth:
