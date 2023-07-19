@@ -61,12 +61,11 @@ export default function () {
       setLoading(true)
       serviceLogin({
         loginName: values.loginName.trim(),
-        password: md5(values.password.trim()),
-        code: values.code.trim()
+        password: md5(values.password.trim())
+        // code: values.code.trim()
       })
         .then(res => {
           setLoading(false)
-          console.log(res.userInfo)
           dispatch(SET_USER_INFO(res.userInfo))
           navigate(redirectUrl, { replace: true })
         })
@@ -164,35 +163,35 @@ export default function () {
               />
             </Form.Item>
 
-            <Form.Item
-              name="code"
-              rules={[
-                {
-                  required: true,
-                  message: "请输入验证码"
-                },
-                {
-                  pattern: /.{4}/,
-                  message: "请输入正确验证码"
-                }
-              ]}
-            >
-              <Input
-                placeholder="请输入验证码"
-                prefix={<PictureOutlined />}
-                maxLength={4}
-                autoComplete="off"
-                onPressEnter={handleSubmit}
-                suffix={
-                  <img
-                    src={`${captchaUrl}${captcha}`}
-                    className="captcha"
-                    onClick={reloadCaptcha}
-                    alt=""
-                  />
-                }
-              />
-            </Form.Item>
+            {/*<Form.Item*/}
+            {/*  name="code"*/}
+            {/*  rules={[*/}
+            {/*    {*/}
+            {/*      required: true,*/}
+            {/*      message: "请输入验证码"*/}
+            {/*    },*/}
+            {/*    {*/}
+            {/*      pattern: /.{4}/,*/}
+            {/*      message: "请输入正确验证码"*/}
+            {/*    }*/}
+            {/*  ]}*/}
+            {/*>*/}
+            {/*  <Input*/}
+            {/*    placeholder="请输入验证码"*/}
+            {/*    prefix={<PictureOutlined />}*/}
+            {/*    maxLength={4}*/}
+            {/*    autoComplete="off"*/}
+            {/*    onPressEnter={handleSubmit}*/}
+            {/*    suffix={*/}
+            {/*      <img*/}
+            {/*        src={`${captchaUrl}${captcha}`}*/}
+            {/*        className="captcha"*/}
+            {/*        onClick={reloadCaptcha}*/}
+            {/*        alt=""*/}
+            {/*      />*/}
+            {/*    }*/}
+            {/*  />*/}
+            {/*</Form.Item>*/}
           </Form>
 
           <div className={classNames('login-bar', {
