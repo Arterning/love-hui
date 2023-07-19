@@ -1,0 +1,18 @@
+GET http://localhost:7001/api/rank
+Accept: application/json, text/plain, */*
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Cookie: EGG_SESS=ig5T9FT-pQIHWiYJy7sftX6Ff65IlC86hzUVW2rSwbQzD86Xe5O5zfjHvWyoJ00FN7viZkBOv6efSbuNy8q58MkOW7hYoHjWEtQkacvCPIOxexGEeB1FmiJy4EsJK4tvAGMQ8NR1iutOXepW4QH4u-Q91-X_tQVOs-BC52VeQPp2lqK_qNGF4hb5yT2asa1rSCtJScgO81gS5jtkekiNy-TJ4E0E5pqGVG__1b6mZPagViVLI1-5ZVFKZJt8uhNmCBmvzsV7hm2fJ1uArkTzruW-lljBUAR3v8aib1sAcGmJwz4TDxfWoklfGRufOFvIT02Ued1xFxDpKUfZCYXouGkGCeyoPcd98Yv_QboBTk9cxyCB3MS7TBjKIoXvVZATIBFYDFrn2X4yymrYU9GvpRJeNS3XNUeqU_IPt3hGtwKWX5Cj67UT6Hx97w0c8adeOnEV1hx8y_8NMdFoF8BfGc7GdmePYgzlvIAgYjt2bBFJ9Zjk9Y-tYmZDWTqJL5iaxo5uc7tovWtCi--5qECPXPBxrWBN96QhZJFbHftKUBk4sjM9BgEEqCs3o2y58XzkQxwopoVJ1sR3AbkJZGUOlVF2XCi7B4fCfjXtykn3MOQ2N15tEewH7fecJcBu3L7n25GjMgstAhGuWqH7kovKQmYXnFgYKqWVkxs2OqAzC2u7fCElbX5lcQLryXOLc2zt2Y0ekl4t2Qxo1aVoAyblCqdTQJk09KUR0vjiwiuRKPo1EefSbe0pqpj1T-R3gOwvaWqXPy7RZ-tcu8YGbl7ZtzKb_8GzzS8GJtCc9-PXQJUxUYZ9OUef8Kt0AxOHDdPXr5vvkV8tRS34t1d3_CfnEw==
+Referer: http://localhost:7001/home/capitalFlow/type
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36
+errorAlert: true
+isLoading: true
+sec-ch-ua: "Not/A)Brand";v="99", "Google Chrome";v="115", "Chromium";v="115"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+
+###
+

@@ -37,7 +37,6 @@ const captchaUrl = CONFIG.http.baseURL + '/api/captcha?code='
 
 function reloadCaptcha(e: any) {
   captcha = randomCode()
-  console.log(captchaUrl);
   const url = captchaUrl + captcha
   e.target.src = url
 }
@@ -196,6 +195,11 @@ export default function () {
             </Form.Item>
           </Form>
 
+          <div className={classNames('login-bar', {
+            'events-none': loading
+          })}>
+            <GithubOutlined onClick={goGithubAuth} />
+          </div>
           <Button
             type="primary"
             style={{ marginTop: '20px' }}
@@ -206,6 +210,15 @@ export default function () {
           >
             {loading ? '登 录 中...' : '登 录'}
           </Button>
+          <div className="register">
+            <Popover
+                content={PopoverContent}
+                trigger="hover"
+                placement="bottomRight"
+            >
+              <span>朝花夕拾</span>
+            </Popover>
+          </div>
         </div>
       </div>
       <Footer />

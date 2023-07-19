@@ -1,24 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import {Button, Table, Tag} from "antd"
 import useKeepState from "use-keep-state";
+import {serviceGetRank} from "@/services/rank";
+import {TypeColors, TypeNames} from "@/views/capital-flow/enum";
+import dayjs from "dayjs";
+import {FORMAT_DATE_MINUTE} from "@/utils";
 
 const initialState = {
     showCreateTypeModal: false,
     selectedRowKeys: [],
     loading: false,
-    data: [
-        {
-            "name": "黄宁",
-            "rank": "1",
-            "color": "orange",
-            "score": "123"
-        },
-        {
-            "name": "小慧",
-            "rank": "2",
-            "color": "blue",
-            "score": "68"
-        }],
+    data: [],
     rowData: null
 }
 
@@ -48,6 +40,20 @@ const RankPage: React.FC = () => {
             setState({selectedRowKeys})
         }
     }
+
+    function getRankData() {
+        setState({loading: true})
+        serviceGetRank().then(res => {
+            setState({data: res})
+        }).finally(() => {
+            setState({loading: false})
+        })
+    }
+
+    useEffect(() => {
+        getRankData()
+    }, [])
+
     return (
         <div>
             <Table

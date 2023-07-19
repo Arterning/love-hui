@@ -20,7 +20,8 @@ module.exports = app => {
     dreamList,
     assetController,
     company,
-    log
+    log,
+    rank,
   } = controller
 
   require('./router/user')(app)
@@ -67,4 +68,7 @@ module.exports = app => {
 
   // 日志管理
   router.resources('log', '/api/log', userRequired, log)
+
+  //积分排名
+  router.get('rank','/api/rank', rank.index)
 }

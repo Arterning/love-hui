@@ -3,6 +3,8 @@ import {
   BarChartOutlined,
   FormOutlined,
   UserOutlined,
+  SnippetsOutlined,
+  InsertRowLeftOutlined,
 } from '@ant-design/icons'
 
 export const HOME_SIDER_MENU_LIST = [
@@ -60,6 +62,16 @@ export const HOME_SIDER_MENU_LIST = [
     path: '/home/rank',
     icon: <FormOutlined/>,
     name: '积分排名'
+  },
+  {
+    path: '/home/log',
+    icon: <SnippetsOutlined />,
+    name: '日志管理'
+  },
+  {
+    path: '/home/company',
+    icon: <InsertRowLeftOutlined />,
+    name: '公司单位'
   },
   {
     path: '/home/setting/base',
