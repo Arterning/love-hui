@@ -19,5 +19,7 @@ export function serviceDeleteTask(id: unknown) {
 
 // 更新
 export function serviceUpdateTask(id: unknown, data?: object) {
-  return http.put(`/task/${id}`, data)
+  return http.put(`/task/${id}`, data, {
+    headers: { successAlert: 'true' }
+  })
 }

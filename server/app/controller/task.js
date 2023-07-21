@@ -73,9 +73,9 @@ class TaskController extends Controller {
     }
 
     const { date, content, count } = ctx.request.body
-    console.log("ctx.user.id @@@", ctx.user.id);
+    console.log(ctx.user.uid)
     try {
-      await service.task.create('1', {
+      await service.task.create(ctx.user.uid, {
         createdAt: date,
         content,
         count
@@ -106,7 +106,13 @@ class TaskController extends Controller {
     const type = rollback ? result.type - 1 : result.type + 1
 
     await service.task.updateDataById(id, { type })
-    ctx.print = null
+
+    //积分更新
+    await service.rank.updateRank(rollback)
+
+    const msg = rollback ? '积分扣除10分~' : '真棒！积分增加10分'
+
+    ctx.print = { msg }
   }
 }
 

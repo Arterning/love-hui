@@ -2,9 +2,6 @@ import React, {useState, useEffect} from 'react'
 import {Button, Table, Tag} from "antd"
 import useKeepState from "use-keep-state";
 import {serviceGetRank} from "@/services/rank";
-import {TypeColors, TypeNames} from "@/views/capital-flow/enum";
-import dayjs from "dayjs";
-import {FORMAT_DATE_MINUTE} from "@/utils";
 
 const initialState = {
     showCreateTypeModal: false,
@@ -30,7 +27,9 @@ const RankPage: React.FC = () => {
         },
         {
             title: '排名',
-            dataIndex: 'rank'
+            render: (rowData: any) => (
+                <Tag color={rowData.color}>{rowData.rank}</Tag>
+            )
         },
     ]
 
@@ -43,8 +42,14 @@ const RankPage: React.FC = () => {
 
     function getRankData() {
         setState({loading: true})
-        serviceGetRank().then(res => {
-            setState({data: res})
+        serviceGetRank().then(data => {
+            // Sort the array by score in descending order
+            data.sort((a: { score: number; }, b: { score: number; }) => b.score - a.score)
+            // Add a "rank" property to each object based on the sorted order
+            data.forEach((item: { rank: any; }, index: number) => {
+                item.rank = index + 1
+            })
+            setState({data})
         }).finally(() => {
             setState({loading: false})
         })

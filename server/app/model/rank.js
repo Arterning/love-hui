@@ -20,9 +20,9 @@ module.exports = app => {
             comment: '用户姓名'
         },
         score: {
-            type: STRING(66),
+            type: INTEGER,
             allowNull: false,
-            defaultValue: '0',
+            defaultValue: 0,
             comment: '积分数目'
         },
         color: {

@@ -32,13 +32,13 @@ const BasePage: React.FC = function () {
         cover={
           <img
             alt="可爱的头像"
-            src={userPoster}
+            src={userInfo.avatarUrl}
             className="poster"
           />
         }
       >
         <Meta
-          avatar={<Avatar src={userPoster} size="large" />}
+          avatar={<Avatar src={userInfo.avatarUrl} size="large" />}
           title={userInfo.username}
           description={MetaDesc}
         />
