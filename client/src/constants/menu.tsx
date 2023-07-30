@@ -63,11 +63,11 @@ export const HOME_SIDER_MENU_LIST = [
     icon: <FormOutlined/>,
     name: '积分排名'
   },
-  {
-    path: '/home/log',
-    icon: <SnippetsOutlined />,
-    name: '日志管理'
-  },
+  // {
+  //   path: '/home/log',
+  //   icon: <SnippetsOutlined />,
+  //   name: '日志管理'
+  // },
   {
     path: '/home/company',
     icon: <InsertRowLeftOutlined />,

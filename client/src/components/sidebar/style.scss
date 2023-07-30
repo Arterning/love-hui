@@ -1,4 +1,4 @@
-$bg-color: #304156;
+$bg-color: rgba(255, 192, 203, 0.7);
 .sidebar {
   background: $bg-color !important;
   user-select: none;
@@ -16,7 +16,7 @@ $bg-color: #304156;
     overflow: hidden;
     height: 64px;
     line-height: 64px;
-    background: #2b2f3a;
+    background: deeppink;
     color: #fff;
     font-size: 20px;
     font-weight: 600;
@@ -27,4 +27,9 @@ $bg-color: #304156;
       pointer-events: none;
     }
   }
+
+  .ant-menu-item, .ant-menu-submenu {
+    color: black;
+  }
+
 }
