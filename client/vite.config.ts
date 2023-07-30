@@ -14,6 +14,8 @@ export default defineConfig({
 
   server: {
     port: 7001,
+    //使用IP能访问
+    host: '0.0.0.0',
     proxy: {
       '/api': {
         target: 'http://localhost:7003',
