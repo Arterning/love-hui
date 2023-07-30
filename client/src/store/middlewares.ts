@@ -10,5 +10,10 @@ export const authMiddleware: Middleware<{}, RootState> =
 			localStorage.setItem(LOCAL_STORAGE.LOGIN_NAME, action.payload.loginName)
 		}
 
+		if (SET_USER_INFO.match(action)) {
+			localStorage.setItem(LOCAL_STORAGE.USER, JSON.stringify(action.payload))
+			localStorage.setItem(LOCAL_STORAGE.LOGIN_NAME, action.payload.loginName)
+		}
+
 		return next(action)
 	}
