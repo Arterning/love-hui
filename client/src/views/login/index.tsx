@@ -105,8 +105,8 @@ export default function () {
   useEffect(() => {
     if (config.isDevelopment) {
       form.setFieldsValue({
-        loginName: 'ning',
-        password: 'ning'
+        loginName: '',
+        password: ''
       })
     }
   }, [])
