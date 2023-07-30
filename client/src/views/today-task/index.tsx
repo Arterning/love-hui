@@ -31,6 +31,7 @@ interface State {
     unfinished: TaskProp[]
   }
   showCreateTaskModal: boolean
+  currentRow: Record<string, any> | null
 }
 
 const initialState: State = {
@@ -40,7 +41,8 @@ const initialState: State = {
     finished: [],
     unfinished: []
   },
-  showCreateTaskModal: false
+  showCreateTaskModal: false,
+  currentRow: null
 }
 
 const TodayTaskPage = () => {
@@ -67,7 +69,7 @@ const TodayTaskPage = () => {
   }
 
   function toggleCreateTaskModal() {
-    setState({ showCreateTaskModal: !state.showCreateTaskModal })
+    setState({ showCreateTaskModal: !state.showCreateTaskModal, currentRow: null })
   }
 
   function handleSuccess() {
@@ -98,6 +100,10 @@ const TodayTaskPage = () => {
   useEffect(() => {
     initParams()
   }, [])
+
+  function handleEdit(item: any) {
+    setState({ showCreateTaskModal: true, currentRow: item })
+  }
 
   return (
     <div className="today-task">
@@ -135,7 +141,7 @@ const TodayTaskPage = () => {
                   <Tag color={TASK_TYPE[key].color}>{TASK_TYPE[key].text}</Tag>
                 </div>
                 {state.data[key].map((item: any) => (
-                  <TaskItem key={item.id} data={item} reloadData={getTask} />
+                  <TaskItem key={item.id} data={item} reloadData={getTask} onClick={() => handleEdit(item)}/>
                 ))}
               </Col>
             ))}
@@ -152,6 +158,7 @@ const TodayTaskPage = () => {
         visible={state.showCreateTaskModal}
         onSuccess={handleSuccess}
         onCancel={toggleCreateTaskModal}
+        data={state.currentRow}
       />
     </div>
   )

@@ -19,7 +19,7 @@ const HomeIndexPage: React.FC = function () {
     <div className="home-index oya">
       <PenelGroup />
       {/* <SystemInfo systemInfo={systemInfo} /> */}
-      {/* <AmountChart /> */}
+       <AmountChart />
     </div>
   )
 }

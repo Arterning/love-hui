@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {MouseEventHandler} from 'react'
 import './style.scss'
 import { serviceDeleteTask, serviceUpdateTask } from '@/services'
 import {
@@ -11,10 +11,11 @@ import { formatDateTime } from '@/utils'
 
 interface Props {
   data: Record<string, any>,
-  reloadData(): void
+  reloadData(): void,
+  onClick: React.MouseEventHandler
 }
 
-const TaskItem: React.FC<Props> = ({ data, reloadData }) => {
+const TaskItem: React.FC<Props> = ({ data, reloadData, onClick }) => {
 
   // 0=删除, 1=开始/完成, 2=回退
   function handleAction(buttonType: number) {
@@ -39,15 +40,16 @@ const TaskItem: React.FC<Props> = ({ data, reloadData }) => {
       hoverable
       className="task-component"
     >
-      <p className="content">{data.content}</p>
-      <div className="level">
-        <span>优先级别：</span>
-        <Rate value={data.count} disabled></Rate>
-        <p className="mt10">
-          创建时间: {formatDateTime(data.createdAt)}
-        </p>
+      <div onClick={onClick}>
+        <p className="content">{data.content}</p>
+        <div className="level">
+          <span>优先级别：</span>
+          <Rate value={data.count} disabled></Rate>
+          <p className="mt10">
+            创建时间: {formatDateTime(data.createdAt)}
+          </p>
+        </div>
       </div>
-
       <div className="button-wrapper">
         <Popconfirm
           title="您确定要删除吗？"
@@ -63,6 +65,9 @@ const TaskItem: React.FC<Props> = ({ data, reloadData }) => {
             删除
           </Button>
         </Popconfirm>
+        <Button type="primary" size="small" onClick={onClick}>
+          编辑
+        </Button>
 
         {(data.type === 1) && (
           <Button

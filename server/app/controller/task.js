@@ -102,17 +102,23 @@ class TaskController extends Controller {
       ctx.print = { errorCode: 2 }
       return
     }
-
-    const type = rollback ? result.type - 1 : result.type + 1
-
-    await service.task.updateDataById(id, { type })
-
-    //积分更新
-    await service.rank.updateRank(rollback)
-
-    const msg = rollback ? '积分扣除10分~' : '真棒！积分增加10分'
-
-    ctx.print = { msg }
+    if (rollback !== null && rollback !== undefined) {
+      const type = rollback ? result.type - 1 : result.type + 1
+      await service.task.updateDataById(id, { type })
+      //积分更新
+      await service.rank.updateRank(rollback)
+      const msg = rollback ? '积分扣除10分~' : '真棒！积分增加10分'
+      ctx.print = { msg }
+    } else {
+      const { date, content, count } = ctx.request.body
+      await service.task.updateDataById(id, {
+        createdAt: date,
+        content,
+        count
+      })
+      const msg = '更新成功'
+      ctx.print = { msg }
+    }
   }
 }
 

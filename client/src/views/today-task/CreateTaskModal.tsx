@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import useKeepState from 'use-keep-state'
 import { isBefore, formatDateTime } from '@/utils'
-import { serviceCreateTask } from '@/services'
+import {serviceCreateTask, serviceUpdateTask} from '@/services'
 import {
   Modal,
   Form,
@@ -9,10 +9,11 @@ import {
   DatePicker,
   Rate
 } from 'antd'
+import dayjs from "dayjs"
 
 type Props = {
   visible: boolean
-  data?: object
+  data?: Record<string, any>
   onSuccess(): void
   onCancel(): void
 }
@@ -26,6 +27,7 @@ const CreateTaskModal: React.FC<Props> = function ({
   visible,
   onSuccess,
   onCancel,
+  data
 }) {
   const [form] = Form.useForm()
   const [state, setState] = useKeepState(initialState)
@@ -39,19 +41,34 @@ const CreateTaskModal: React.FC<Props> = function ({
         count: values.count
       }
 
-      setState({ confirmLoading: true })
+      setState({ confirmLoading: true });
 
-      serviceCreateTask(params)
+      (
+          !data
+              ? serviceCreateTask(params)
+              : serviceUpdateTask(data.id, params)
+      )
         .then(() => {
           onSuccess()
         })
         .finally(() => {
           setState({ confirmLoading: false })
         })
+
     } catch (err) {
       console.log(err)
     }
   }
+
+  useEffect(() => {
+    if (data) {
+      form.setFieldsValue({
+        date: dayjs(data.createdAt),
+        content: data.content,
+        count: data.count
+      })
+    }
+  })
 
   return (
     <Modal
