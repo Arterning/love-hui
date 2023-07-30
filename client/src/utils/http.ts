@@ -43,7 +43,7 @@ export function setupInterceptor(store: IStore) {
   httpInstance.interceptors.request.use(function (config) {
     const method = config.method
     const userState = store.getState().user.userInfo
-
+    console.log("token is " , userState.token)
     if (userState.token) {
       if (config.headers) {
         config.headers.token = userState.token as string

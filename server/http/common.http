@@ -1,19 +1,3 @@
-# curl 'http://localhost:7001/api/panel'
-#  -H 'Accept: application/json, text/plain, */*'
-#  -H 'Accept-Language: zh-CN,zh;q=0.9'
-#  -H 'Connection: keep-alive'
-#  -H 'Cookie: EGG_SESS=ig5T9FT-pQIHWiYJy7sftX6Ff65IlC86hzUVW2rSwbQzD86Xe5O5zfjHvWyoJ00FN7viZkBOv6efSbuNy8q58MkOW7hYoHjWEtQkacvCPIOxexGEeB1FmiJy4EsJK4tvAGMQ8NR1iutOXepW4QH4u-Q91-X_tQVOs-BC52VeQPp2lqK_qNGF4hb5yT2asa1rSCtJScgO81gS5jtkekiNy-TJ4E0E5pqGVG__1b6mZPagViVLI1-5ZVFKZJt8uhNmCBmvzsV7hm2fJ1uArkTzruW-lljBUAR3v8aib1sAcGmJwz4TDxfWoklfGRufOFvIT02Ued1xFxDpKUfZCYXouHedKHW-KE9g-pIWia9nj18T8dKqVgoACUN1IKRTXYWaOzbgX_zLWJaLAhrwRh0thO_4hBs35BRqnWW3ctZGrpucyaRWOpYq13m0SPQpbYn-3BVV7BQmXtiXnokfVvnZsbq8WjFXVSmWRsVnTQnkh2E2tZcMJhH3fmoqW9z6Q8la2liTUeJH2PGeqTGSwNhrppGrleJ_Fqc3XLeT7_TZwzjlxoMqwRRcxeu1WIdWMvD36rMTLujxY3Hozywnz3XEkpMTPDa7VvJe7e9hIGGR27jKikuJZsi8itjr4c91Z9JSn7n1uSUHqbfz2r5Riit4N-Yk4wOjeqNVmtt6009k6dgEOpBpbHE3ibPXonA3A5t9'
-#  -H 'Referer: http://localhost:7001/home/index'
-#  -H 'Sec-Fetch-Dest: empty'
-#  -H 'Sec-Fetch-Mode: cors'
-#  -H 'Sec-Fetch-Site: same-origin'
-#  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-#  -H 'errorAlert: true'
-#  -H 'isLoading: true'
-#  -H 'sec-ch-ua: "Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"'
-#  -H 'sec-ch-ua-mobile: ?0'
-#  -H 'sec-ch-ua-platform: "Windows"'
-#  --compressed
 GET http://localhost:7003/api/panel
 Accept: application/json, text/plain, */*
 Accept-Language: zh-CN,zh;q=0.9
@@ -30,11 +14,11 @@ sec-ch-ua: "Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"
 sec-ch-ua-mobile: ?0
 sec-ch-ua-platform: "Windows"
 
-###
+### index
 GET http://localhost:7003/
 
-###
-POST http://localhost:7003/register
+### register
+POST http://localhost:7003/api/register
 Accept: application/json, text/plain, */*
 Content-Type: application/json
 
@@ -43,3 +27,28 @@ Content-Type: application/json
   "name":"name",
   "password":"123456"
 }
+
+### login
+POST http://localhost:7001/api/passport/local
+Accept: application/json, text/plain, */*
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+Cookie: Hm_lvt_cd241f0887f9e49d66903f9ae8c391ea=1690520381; EGG_SESS=ig5T9FT-pQIHWiYJy7sfteMBmAKN8gj_j-wjMUaxXElGhIEmocE0E_tjUrWPMeUyZ2oj_ocZoBBEukKt9vRbuFW7dM3-h0RmINIHIswG-NINr889I9iI7tgU-95G46UT
+Origin: http://localhost:7001
+Referer: http://localhost:7001/?redirectUrl=/home/reminder
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36
+errorAlert: true
+isLoading: true
+sec-ch-ua: "Not/A)Brand";v="99", "Google Chrome";v="115", "Chromium";v="115"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+Content-Type: application/json
+
+{
+  "loginName": "ning",
+  "password": "8aa285d2dc45e75428411e559a01cc72"
+}
+
