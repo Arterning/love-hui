@@ -36,6 +36,12 @@ module.exports = app => {
       defaultValue: 0,
       comment: '待办优先级, 0-5'
     },
+    partner: {
+      type: INTEGER,
+      allowNull: false,
+      defaultValue: 2,
+      comment: '任务分配'
+    }
   }, {
     underscored: true,
     comment: '今日待办',

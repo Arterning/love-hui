@@ -8,6 +8,7 @@ import {
   Popconfirm
 } from 'antd'
 import { formatDateTime } from '@/utils'
+import {PARTNER} from "@/views/today-task/enum";
 
 interface Props {
   data: Record<string, any>,
@@ -34,6 +35,11 @@ const TaskItem: React.FC<Props> = ({ data, reloadData, onClick }) => {
     }
   }
 
+  function formatPartner(partner: number): string | undefined {
+    const found = PARTNER.find(item => item.value === partner)
+    return found?.name
+  }
+
   return (
     <Card
       title="我的待办"
@@ -48,6 +54,7 @@ const TaskItem: React.FC<Props> = ({ data, reloadData, onClick }) => {
           <p className="mt10">
             创建时间: {formatDateTime(data.createdAt)}
           </p>
+          <span>任务分配：{formatPartner(data.partner)}</span>
         </div>
       </div>
       <div className="button-wrapper">

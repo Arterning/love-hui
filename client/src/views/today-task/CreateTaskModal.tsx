@@ -1,15 +1,17 @@
 import React, {useEffect} from 'react'
 import useKeepState from 'use-keep-state'
-import { isBefore, formatDateTime } from '@/utils'
+import {isBefore, formatDateTime, filterOption} from '@/utils'
 import {serviceCreateTask, serviceUpdateTask} from '@/services'
 import {
   Modal,
   Form,
   Input,
   DatePicker,
-  Rate
+  Rate, Select
 } from 'antd'
 import dayjs from "dayjs"
+import {PARTNER} from "@/views/today-task/enum";
+const { Option } = Select
 
 type Props = {
   visible: boolean
@@ -38,7 +40,8 @@ const CreateTaskModal: React.FC<Props> = function ({
       const params = {
         date: formatDateTime(values.date),
         content: values.content.trim(),
-        count: values.count
+        count: values.count,
+        partner: values.partner
       }
 
       setState({ confirmLoading: true });
@@ -65,7 +68,8 @@ const CreateTaskModal: React.FC<Props> = function ({
       form.setFieldsValue({
         date: dayjs(data.createdAt),
         content: data.content,
-        count: data.count
+        count: data.count,
+        partner: data.partner
       })
     }
   })
@@ -111,6 +115,25 @@ const CreateTaskModal: React.FC<Props> = function ({
             maxLength={200}
             placeholder="请输入内容"
           />
+        </Form.Item>
+
+        <Form.Item label="任务分配"
+                   name="partner"
+                   rules={[
+                     {
+                       required: true,
+                       message: "请选择任务人"
+                     }
+                   ]}>
+          <Select
+              showSearch
+              className="w150px"
+              filterOption={filterOption}
+          >
+            {PARTNER.map(item => (
+                <Option value={item.value} key={item.value}>{item.name}</Option>
+            ))}
+          </Select>
         </Form.Item>
 
         <Form.Item
