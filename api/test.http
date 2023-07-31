@@ -1,2 +1,13 @@
-## hello world
+### hello world
 GET http://localhost:3000
+
+
+### uplaod file
+POST http://localhost:3000/upload/upload
+Content-Type:multipart/form-data;boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="微信图片_20230720161108.jpg"
+
+// The 'input.txt' file will be uploaded
+< C:\Users\china\Pictures\微信图片_20230720161108.jpg
