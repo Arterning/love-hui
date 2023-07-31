@@ -10,18 +10,17 @@ class Rank extends Service {
         return ctx.model.Rank.findAll()
     }
 
-    async updateRank(rollback) {
+    async updateRank(rollback, partner) {
         const {ctx} = this
-        const uid = ctx.user.uid
         const find = await ctx.model.Rank.findOne({
             where: {
-                uid
+                uid: partner
             }
         })
         const score = rollback ? find.score - 10 : find.score + 10
         ctx.model.Rank.update({score}, {
             where: {
-                uid
+                uid: partner
             }
         })
     }

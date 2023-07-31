@@ -105,11 +105,12 @@ class TaskController extends Controller {
     }
     if (rollback !== null && rollback !== undefined) {
       const type = rollback ? result.type - 1 : result.type + 1
-
+      const partner = result.partner
       await service.task.updateDataById(id, { type })
       //积分更新
-      await service.rank.updateRank(rollback)
-      const msg = rollback ? '积分扣除10分~' : '真棒！积分增加10分'
+      await service.rank.updateRank(rollback, partner)
+      const partnerName = partner === 1 ? "宁哥" : "小慧"
+      const msg = rollback ? partnerName + '积分扣除10分~' : partnerName + '真棒！积分增加10分'
       ctx.print = { msg }
     } else {
       const { date, content, count, partner } = ctx.request.body
