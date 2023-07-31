@@ -3,7 +3,7 @@ import { UploadService } from './upload.service';
 import { CreateUploadDto } from './dto/create-upload.dto';
 import { UpdateUploadDto } from './dto/update-upload.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-import {diskStorage} from "multer";
+import {diskStorage} from 'multer';
 import { extname } from 'path';
 import {Request} from "express";
 
