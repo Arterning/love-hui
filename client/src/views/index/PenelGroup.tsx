@@ -7,7 +7,7 @@ import {
   PropertySafetyFilled,
   ScheduleFilled,
   FileTextFilled,
-  AlertFilled
+  AlertFilled, AlipayCircleOutlined
 } from '@ant-design/icons'
 
 const PanelGroup = () => {
@@ -16,7 +16,7 @@ const PanelGroup = () => {
     {
       title: '今日支出',
       total: '0',
-      Icon: <PropertySafetyFilled className="icon" />,
+      Icon: <AlipayCircleOutlined className="icon" />,
       prefix: '￥',
       path: '/home/capitalFlow'
     },

@@ -37,6 +37,7 @@
 // PanelGroup
 .panel-group {
   $colors: #f50 #34bfa3 #36a3f7 #40c9c6;
+  //$background-images: url(../../assets/img/common/user-poster.png) url(../../assets/img/common/user-poster.png) url(../../assets/img/common/user-poster.png) url(../../assets/img/common/user-poster.png);
   .icon svg {
     width: 75px;
     height: 75px;
@@ -49,6 +50,7 @@
       &:nth-child(#{$i}) {
         .anticon {
           color: nth($colors, $i);
+          //background-image: nth($background-images, $i);
         }
 
         &:hover {

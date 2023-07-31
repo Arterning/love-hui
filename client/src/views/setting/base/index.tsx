@@ -28,7 +28,7 @@ const BasePage: React.FC = function () {
     <div className="setting-base">
       <Divider orientation="left" plain>个人中心</Divider>
       <Card
-        style={{ width: 680 }}
+        style={{ width: 370 }}
         cover={
           <img
             alt="可爱的头像"
