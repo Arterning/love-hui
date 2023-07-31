@@ -3,9 +3,9 @@ import {
   BarChartOutlined,
   FormOutlined,
   UserOutlined,
-  SnippetsOutlined,
-  InsertRowLeftOutlined,
+  InsertRowLeftOutlined, AppleFilled, GithubFilled, TwitterCircleFilled, RocketFilled,
 } from '@ant-design/icons'
+import {HeartIcon, PandaIcon} from "@/components/icon";
 
 export const HOME_SIDER_MENU_LIST = [
   {
@@ -15,27 +15,27 @@ export const HOME_SIDER_MENU_LIST = [
   },
   {
     path: '/home/reminder',
-    icon: <FormOutlined />,
+    icon: <PandaIcon />,
     name: '提醒事项'
   },
   {
     path: '/home/todoList',
-    icon: <FormOutlined />,
+    icon: <HeartIcon style={{color: 'hotpink'}}/>,
     name: '心愿清单',
   },
   {
     path: '/home/todayTask',
-    icon: <FormOutlined />,
+    icon: <AppleFilled style={{color: 'gray'}}/>,
     name: '今日待办'
   },
   {
     path: '/home/rank',
-    icon: <FormOutlined/>,
+    icon: <GithubFilled />,
     name: '积分排名'
   },
   {
     path: '',
-    icon: <BarChartOutlined />,
+    icon: <TwitterCircleFilled style={{color: 'brown'}}/>,
     name: '财务管理',
     children: [
       {
@@ -70,7 +70,7 @@ export const HOME_SIDER_MENU_LIST = [
   // },
   {
     path: '/home/company',
-    icon: <InsertRowLeftOutlined />,
+    icon: <RocketFilled style={{color: 'greenyellow'}}/>,
     name: '公司单位'
   },
   {
