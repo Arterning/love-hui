@@ -23,7 +23,7 @@ import {
 const { Header } = Layout
 const popoverList = [
   { name: '个人中心', path: '/home/setting/base' },
-  { name: '消息通知', path: '/home/setting/notification' },
+  // { name: '消息通知', path: '/home/setting/notification' },
   { name: '账号设置', path: '/home/setting/account' }
 ]
 
@@ -88,6 +88,15 @@ const HomeHeader: React.FC<Props> = function ({
     </div>
   ), [messageList])
 
+  const ArterNingContent = () => (
+      <div className="message-popover">
+        <div className="msg-header item-block">
+          <span className="left">小慧的消息通知</span>
+        </div>
+        <Empty style={{ padding: '20px 0' }} />
+      </div>
+  )
+
   function handleFullscreen() {
     setIsFullscreen(isFullscreen => {
       isFullscreen ? exitFullscreen() : fullscreen()
@@ -111,14 +120,16 @@ const HomeHeader: React.FC<Props> = function ({
         )}
       </div>
       <ul className="right">
-        <Popover content={MessageContent}>
+        <Popover content={ArterNingContent}>
           <li>
-            <Badge dot={unReadCount > 0}>
+            <Badge dot={true}>
               <BellFilled />
             </Badge>
           </li>
         </Popover>
-        
+        <li onClick={handleFullscreen}>
+          {isFullscreen ? <FullscreenOutlined /> : <FullscreenExitOutlined />}
+        </li>
         <Popover
           placement="bottomRight"
           content={PopoverContent}

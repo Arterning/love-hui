@@ -85,14 +85,14 @@ export const SETTING_SIDER_MENU_LIST = [
     path: '/home/setting/base',
     name: '个人中心'
   },
-  {
-    path: '/home/setting/innerMessage',
-    name: '消息中心'
-  },
-  {
-    path: '/home/setting/notification',
-    name: '消息通知'
-  },
+  // {
+  //   path: '/home/setting/innerMessage',
+  //   name: '消息中心'
+  // },
+  // {
+  //   path: '/home/setting/notification',
+  //   name: '消息通知'
+  // },
   {
     path: '/home/setting/account',
     name: '账号设置'

@@ -67,14 +67,14 @@ class UserController extends Controller {
   // 更新用户信息
   async updateUser() {
     const { ctx } = this
-    const { password } = ctx.request.body
+    const { password, email, location, bio } = ctx.request.body
     const uid = ctx.user.uid
     if (!password) {
       ctx.print = { errorCode: 400 }
       return
     }
     try {
-      const userInfo = await ctx.service.user.updateUser(uid, { password })
+      const userInfo = await ctx.service.user.updateUser(uid, { password, email, location, bio })
       ctx.print = { msg: '更新成功', userInfo: userInfo }
     } catch {
       ctx.print = { errorCode: 3, msg: '更新失败' }

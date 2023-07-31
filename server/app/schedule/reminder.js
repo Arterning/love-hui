@@ -11,7 +11,8 @@ class Reminder extends Subscription {
 
   async subscribe() {
     const { service } = this
-    service.mail.sendReminder()
+    //暂时不需要发送邮件
+    //await service.mail.sendReminder()
   }
 }
 
