@@ -3,6 +3,9 @@ import { UploadService } from './upload.service';
 import { CreateUploadDto } from './dto/create-upload.dto';
 import { UpdateUploadDto } from './dto/update-upload.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
+import {diskStorage} from "multer";
+import { extname } from 'path';
+import {Request} from "express";
 
 @Controller('upload')
 export class UploadController {
@@ -10,7 +13,14 @@ export class UploadController {
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file', {
-    dest: 'uploads'
+    dest: 'uploads',
+    storage: diskStorage({
+      destination: './uploads',
+      filename(req: Request, file: Express.Multer.File, callback: (error: (Error | null), filename: string) => void) {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        callback(null, uniqueSuffix + extname(file.originalname));
+      }
+    })
   }))
   uploadFile(@UploadedFile() file: Express.Multer.File) {
     console.log('file', file);

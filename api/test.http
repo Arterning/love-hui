@@ -11,3 +11,7 @@ Content-Disposition: form-data; name="file"; filename="微信图片_202307201611
 
 // The 'input.txt' file will be uploaded
 < C:\Users\china\Pictures\微信图片_20230720161108.jpg
+
+
+### get file
+GET http://localhost:3000/uploads/1690769106319-948241002.jpg
