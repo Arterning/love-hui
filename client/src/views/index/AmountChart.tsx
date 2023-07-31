@@ -3,10 +3,10 @@ import './style.scss'
 import { Empty, DatePicker } from 'antd'
 import { serviceGetCapitalFlowAmount, serviceGetCapitalFlowAmountGroup } from '@/services'
 import {
-  LineChart, Line, XAxis,
+  AreaChart, Line, XAxis,
   YAxis, CartesianGrid, Tooltip,
   Legend, ResponsiveContainer, BarChart,
-  Bar
+  Bar, Area
 } from 'recharts'
 import { formatDate, FORMAT_DATE, DATE_WEEK } from '@/utils'
 import dayjs from 'dayjs'
@@ -99,7 +99,7 @@ const AmountChart = () => {
 
       {(totalAmount > 0) ? (
         <ResponsiveContainer width="100%" height={350}>
-          <LineChart
+          <AreaChart
             width={500}
             height={300}
             data={data}
@@ -114,10 +114,9 @@ const AmountChart = () => {
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="收入" stroke="#82ca9d" activeDot={{ r: 8 }} />
-            <Line type="monotone" dataKey="支出" stroke="#ff5000" />
-          </LineChart>
+            <Area type="monotone" dataKey="收入" stroke="pink" fill="pink" activeDot={{ r: 8 }} />
+            <Area type="monotone" dataKey="支出" stroke="yellow" fill="yellow"/>
+          </AreaChart >
         </ResponsiveContainer>
       ) : (
         <div className="no-data">
@@ -144,7 +143,7 @@ const AmountChart = () => {
             <Tooltip />
             <Legend />
             <CartesianGrid strokeDasharray="3 3" />
-            <Bar dataKey="amount" name="金额" fill="#8884d8" />
+            <Bar dataKey="amount" name="金额" fill="pink" />
           </BarChart>
         </ResponsiveContainer>
       )}
