@@ -9,7 +9,7 @@ import HighchartsReact from 'highcharts-react-official';
 
 const options: Highcharts.Options = {
     title: {
-        text: 'My chart'
+        text: '积分增长图'
     },
     series: [{
         type: 'line',

@@ -29,6 +29,11 @@ export const HOME_SIDER_MENU_LIST = [
     name: '今日待办'
   },
   {
+    path: '/home/rank',
+    icon: <FormOutlined/>,
+    name: '积分排名'
+  },
+  {
     path: '',
     icon: <BarChartOutlined />,
     name: '财务管理',
@@ -57,11 +62,6 @@ export const HOME_SIDER_MENU_LIST = [
         name: '创建笔记',
       }
     ]
-  },
-  {
-    path: '/home/rank',
-    icon: <FormOutlined/>,
-    name: '积分排名'
   },
   // {
   //   path: '/home/log',
