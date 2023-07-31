@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Button, Table, Tag} from "antd"
 import useKeepState from "use-keep-state";
 import {serviceGetRank} from "@/services/rank";
+import RankChart from "@/views/rank/RankChart";
 
 const initialState = {
     showCreateTypeModal: false,
@@ -69,6 +70,7 @@ const RankPage: React.FC = () => {
                 rowKey="id"
                 loading={state.loading}
             />
+            <RankChart/>
         </div>
     )
 }

@@ -129,6 +129,12 @@ importers:
       dayjs:
         specifier: ^1.11.7
         version: registry.npmmirror.com/dayjs@1.11.7
+      highcharts:
+        specifier: ^11.1.0
+        version: registry.npmmirror.com/highcharts@11.1.0
+      highcharts-react-official:
+        specifier: ^3.2.0
+        version: registry.npmmirror.com/highcharts-react-official@3.2.0(highcharts@11.1.0)(react@18.2.0)
       lodash:
         specifier: ^4.17.21
         version: registry.npmmirror.com/lodash@4.17.21
@@ -9423,6 +9429,25 @@ packages:
     version: 1.0.0
     engines: {node: '>=8'}
     dev: true
+
+  registry.npmmirror.com/highcharts-react-official@3.2.0(highcharts@11.1.0)(react@18.2.0):
+    resolution: {integrity: sha512-71IJZsLmEboYFjONpwC3NRsg6JKvtKYtS5Si3e6s6MLRSOFNOY8KILTkzvO36kjpeR/A0X3/kvvewE+GMPpkjw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/highcharts-react-official/-/highcharts-react-official-3.2.0.tgz}
+    id: registry.npmmirror.com/highcharts-react-official/3.2.0
+    name: highcharts-react-official
+    version: 3.2.0
+    peerDependencies:
+      highcharts: '>=6.0.0'
+      react: '>=16.8.0'
+    dependencies:
+      highcharts: registry.npmmirror.com/highcharts@11.1.0
+      react: registry.npmmirror.com/react@18.2.0
+    dev: false
+
+  registry.npmmirror.com/highcharts@11.1.0:
+    resolution: {integrity: sha512-vhmqq6/frteWMx0GKYWwEFL25g4OYc7+m+9KQJb/notXbNtIb8KVy+ijOF7XAFqF165cq0pdLIePAmyFY5ph3g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/highcharts/-/highcharts-11.1.0.tgz}
+    name: highcharts
+    version: 11.1.0
+    dev: false
 
   registry.npmmirror.com/highlight.js@10.7.3:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/highlight.js/-/highlight.js-10.7.3.tgz}
