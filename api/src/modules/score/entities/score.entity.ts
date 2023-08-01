@@ -16,6 +16,12 @@ export class ScoreHistory {
     @Column()
     score: number;
 
+    @Column({
+        type: 'date',
+        nullable: false
+    })
+    date: Date;
+
     @CreateDateColumn({
         type: 'datetime',
         comment: '创建时间',

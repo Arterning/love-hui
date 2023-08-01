@@ -4,4 +4,6 @@ export class CreateScoreDto {
 
     score: number
 
+    date: Date
+
 }

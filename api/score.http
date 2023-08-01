@@ -1,12 +1,46 @@
 ### create score
-POST http://localhost:3000/score
+POST http://localhost:3000/content/score
 Content-Type: application/json
 
 {
   "partnerId": 1,
-  "score": "33"
+  "score": "33",
+  "date": "2023-08-01"
 }
 
 ### get scores
-GET http://localhost:3000/score
+GET http://localhost:3000/content/score
 Content-Type: application/json
+
+
+### get scores
+GET http://localhost:3000/content/score/3
+Content-Type: application/json
+
+### update score
+PATCH http://localhost:3000/content/score/3
+Content-Type: application/json
+
+{
+  "partnerId": 1,
+  "score": "88",
+  "date": "2023-07-01"
+}
+
+### update score
+POST http://localhost:3000/content/score/updateTodayScore
+Content-Type: application/json
+
+{
+  "partnerId": 1,
+  "add": "99",
+  "date": "2023-07-01"
+}
+
+
+### get chart
+GET http://localhost:3000/content/score/chart/find
+Content-Type: application/json
+
+
+
