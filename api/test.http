@@ -10,7 +10,7 @@ Content-Type:multipart/form-data;boundary=boundary
 Content-Disposition: form-data; name="file"; filename="微信图片_20230720161108.jpg"
 
 // The 'input.txt' file will be uploaded
-< C:\Users\china\Pictures\微信图片_20230720161108.jpg
+< C:\Users\china\Pictures\Snipaste_2023-07-31_21-39-09.png
 
 
 ### get file

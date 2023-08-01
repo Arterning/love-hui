@@ -1,0 +1,12 @@
+### create score
+POST http://localhost:3000/score
+Content-Type: application/json
+
+{
+  "partnerId": 1,
+  "score": "33"
+}
+
+### get scores
+GET http://localhost:3000/score
+Content-Type: application/json
