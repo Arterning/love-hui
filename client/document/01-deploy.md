@@ -13,9 +13,14 @@ server {
 
         }
 
-        # 配置反向代理，将API请求转发到后端服务器
+        # 配置反向代理，将API请求转发到eggjs后端服务器
         location /api {
             proxy_pass http://localhost:7003;
+        }
+        
+        # 配置反向代理，将API请求转发到nest后端服务器
+        location /content {
+            proxy_pass http://localhost:3000;
         }
 
 }
