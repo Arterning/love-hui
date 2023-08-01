@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import * as Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import {serviceGetRankHistory} from "@/services/rankHistory";
 
 // The wrapper exports only a default component that at the same time is a
 // namespace for the related Props interface (HighchartsReact.Props) and
@@ -24,6 +25,10 @@ const options: Highcharts.Options = {
 const RankChart = (props: HighchartsReact.Props) => {
     const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
 
+    useEffect(()=> {
+        serviceGetRankHistory().then(res => {
+            console.log('@@@',res)
+        })}, [])
     return (
         <HighchartsReact
             highcharts={Highcharts}
