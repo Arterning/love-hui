@@ -23,8 +23,18 @@
 }
 
 // TaskItem
+.bg1 {
+  //background-image: url("../../assets/img/common/panda.png");
+  background-color: lightblue;
+}
+
+.bg2{
+  //background-image: url("../../assets/img/common/no-data.svg");
+  background-color: pink;
+}
+
 .task-component {
-  $padding: 15px;
+  $padding: 10px;
   .ant-card-body {
     padding: $padding 0;
   }

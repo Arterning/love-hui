@@ -40,11 +40,12 @@ const TaskItem: React.FC<Props> = ({ data, reloadData, onClick }) => {
     return found?.name
   }
 
+  const dynamicClassName = data.partner == 1 ? 'task-component bg1' : 'task-component bg2';
   return (
     <Card
-      title="我的待办"
+      title={`${formatPartner(data.partner)}的任务`}
       hoverable
-      className="task-component"
+      className={dynamicClassName}
     >
       <div onClick={onClick}>
         <p className="content">{data.content}</p>
