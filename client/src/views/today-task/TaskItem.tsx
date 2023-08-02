@@ -32,6 +32,7 @@ const TaskItem: React.FC<Props> = ({ data, reloadData, onClick }) => {
       .then(() => {
         reloadData()
       })
+      //TODO update score in content
     }
   }
 
