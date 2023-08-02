@@ -1,5 +1,9 @@
 ### hello world
-GET http://localhost:3000
+GET http://localhost:3000/content
+
+
+### welcome
+GET http://localhost:3000/content/love
 
 
 ### uplaod file
