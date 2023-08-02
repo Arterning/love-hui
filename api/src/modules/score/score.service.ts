@@ -91,14 +91,26 @@ export class ScoreService {
       },
     })
     if (!entity) {
-      return new NotFoundException(`Score not found`);
+      const latest = await this.findLatest()
+      console.log(latest)
+      const found = latest.find(e => e.partnerId === addScoreDto.partnerId)
+      console.log('@@', found)
+      if (!found) {
+        return
+      }
+      const createScoreDto: CreateScoreDto = {
+        date: addScoreDto.date,
+        partnerId: addScoreDto.partnerId,
+        score: found.score + parseInt(String(addScoreDto.add))
+      }
+      return await this.create(createScoreDto)
+    } else {
+      //由于没有使用Pipe 导致这里接受到的是字符串 而不是number
+      const score = parseInt(String(addScoreDto.add)) + entity.score
+      console.log('update score',score)
+      entity.score = score
+      return this.scoreHistoryRepository.save(entity)
     }
-    //由于没有使用Pipe 导致这里接受到的是字符串 而不是number
-    const score = parseInt(String(addScoreDto.add)) + entity.score
-    console.log(score)
-    console.log('增加积分', entity)
-    entity.score = score
-    return this.scoreHistoryRepository.save(entity)
   }
 
     findLatest() {

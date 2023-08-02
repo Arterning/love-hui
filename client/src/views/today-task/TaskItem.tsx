@@ -7,8 +7,10 @@ import {
   Rate,
   Popconfirm
 } from 'antd'
-import { formatDateTime } from '@/utils'
+import {FORMAT_DATE, formatDateTime} from '@/utils'
 import {PARTNER} from "@/views/today-task/enum";
+import {AddScoreType, serviceUpdateScore} from "@/services/rank";
+import dayjs from "dayjs";
 
 interface Props {
   data: Record<string, any>,
@@ -32,7 +34,14 @@ const TaskItem: React.FC<Props> = ({ data, reloadData, onClick }) => {
       .then(() => {
         reloadData()
       })
-      //TODO update score in content
+      const updateScore :AddScoreType = {
+        partnerId: data.partner,
+        date: dayjs().format(FORMAT_DATE),
+        add: buttonType === 1 ? 10 : -10
+      }
+      serviceUpdateScore(updateScore).then((resp) => {
+        console.log(resp)
+      })
     }
   }
 
