@@ -1,7 +1,7 @@
-import http from '@/utils/http'
+import {fetchJson} from "@/utils/fetch";
 
 // 类型
-export function serviceGetRank() {
-    return http.get('/rank')
-}
 
+export async function serviceGetRank() {
+    return await fetchJson('/content/score/latest')
+}

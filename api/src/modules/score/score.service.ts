@@ -101,4 +101,15 @@ export class ScoreService {
     return this.scoreHistoryRepository.save(entity)
   }
 
+    findLatest() {
+      // 获取当前日期，不包括时分秒
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // 将时分秒设为0，只保留日期部分
+      return this.scoreHistoryRepository.find({
+        where: {
+          date: today
+        }
+      })
+    }
+
 }

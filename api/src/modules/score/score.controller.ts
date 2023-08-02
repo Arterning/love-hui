@@ -18,6 +18,11 @@ export class ScoreController {
     return this.scoreService.findAll();
   }
 
+  @Get('latest')
+  findLatest() {
+    return this.scoreService.findLatest();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     console.log('这是一个陷阱')

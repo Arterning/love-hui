@@ -43,12 +43,15 @@ const RankPage: React.FC = () => {
 
     function getRankData() {
         setState({loading: true})
-        serviceGetRank().then(data => {
+        serviceGetRank().then(resp => {
+            const data = resp.data
             // Sort the array by score in descending order
             data.sort((a: { score: number; }, b: { score: number; }) => b.score - a.score)
             // Add a "rank" property to each object based on the sorted order
             data.forEach((item: { rank: any; }, index: number) => {
                 item.rank = index + 1
+                item.name = item.partnerId == 1 ? '宁哥' : '小慧'
+                item.color = item.partnerId == 1 ? 'orange': 'pink'
             })
             setState({data})
         }).finally(() => {

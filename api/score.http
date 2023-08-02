@@ -43,4 +43,7 @@ GET http://localhost:3000/content/score/chart/find
 Content-Type: application/json
 
 
+### get latest
+GET http://localhost:3000/content/score/latest
+Content-Type: application/json
 
