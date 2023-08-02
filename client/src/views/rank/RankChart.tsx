@@ -30,7 +30,10 @@ const RankChart = (props: HighchartsReact.Props) => {
         })}, [])
     const options: Highcharts.Options = {
         chart: {
-            type: 'area'
+            type: 'area',
+            zooming: {
+                type: 'xy'
+            }
         },
         title: {
             text: '积分增长图'
@@ -47,7 +50,9 @@ const RankChart = (props: HighchartsReact.Props) => {
         },
         plotOptions: {
             series: {
-                pointStart: 2014
+                marker: {
+                    enabled: false
+                }
             },
             area: {
                 fillOpacity: 0.3
