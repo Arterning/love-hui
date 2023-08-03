@@ -95,7 +95,7 @@ export class ScoreService {
       console.log(latest)
       const found = latest.find(e => e.partnerId == addScoreDto.partnerId)
       console.log('found', found, found.partnerId, addScoreDto.partnerId)
-      if (!found) {
+      if (found) {
         const createScoreDto: CreateScoreDto = {
           date: addScoreDto.date,
           partnerId: addScoreDto.partnerId,
