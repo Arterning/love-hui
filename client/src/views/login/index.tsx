@@ -141,6 +141,7 @@ export default function () {
                 maxLength={32}
                 autoComplete="off"
                 onPressEnter={handleSubmit}
+                style={{opacity: '0.5', color: 'black'}}
               />
             </Form.Item>
 
@@ -160,6 +161,7 @@ export default function () {
                 type="password"
                 autoComplete="off"
                 onPressEnter={handleSubmit}
+                style={{opacity: '0.5', color: 'black'}}
               />
             </Form.Item>
 
@@ -201,7 +203,7 @@ export default function () {
           </div>
           <Button
             type="primary"
-            style={{ marginTop: '20px' }}
+            style={{width:'80px', marginTop: '20px', marginLeft:'250px', background:'pink' , opacity: 0.8, color: 'deeppink'}}
             size="large"
             loading={loading}
             block

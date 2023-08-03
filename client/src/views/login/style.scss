@@ -15,8 +15,10 @@
 .login-page {
   display: flex;
   min-height: 100vh;
-  background: #f0f2f5 url("https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg") no-repeat center 110px;
-  background-size: 100%;
+  background: url("../../assets/img/public/left.png") no-repeat left top,
+  url("../../assets/img/public/center.png") no-repeat center,
+  url("../../assets/img/public/right.png") no-repeat right top;
+  background-size: 35%;
   flex-direction: column;
 
   .octo-arm {
