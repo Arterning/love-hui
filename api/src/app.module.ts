@@ -20,6 +20,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       // 配合$Entity（）同步装饰器自动会根据使用的类生成一个SQL表 以及包含的元数据--节省了大量去手动编码
       //⭐还有请记住这个仅用于开发模式
       synchronize: true,
+      logging: true, // 启用查询日志
+
     }),
     UploadModule, ScoreModule],
   controllers: [AppController],

@@ -1,9 +1,9 @@
 import {Injectable, NotFoundException} from '@nestjs/common';
-import { CreateScoreDto } from './dto/create-score.dto';
-import { UpdateScoreDto } from './dto/update-score.dto';
+import {CreateScoreDto} from './dto/create-score.dto';
+import {UpdateScoreDto} from './dto/update-score.dto';
 import {ScoreHistory} from "./entities/score.entity";
 import {InjectRepository} from "@nestjs/typeorm";
-import { DataSource, Repository } from 'typeorm';
+import {Repository} from 'typeorm';
 import {AddScoreDto} from "./dto/add-score.dto";
 import {DataPoint} from "./type";
 
@@ -113,15 +113,17 @@ export class ScoreService {
     }
   }
 
-    findLatest() {
-      // 获取当前日期，不包括时分秒
-      const today = new Date();
-      today.setHours(0, 0, 0, 0); // 将时分秒设为0，只保留日期部分
-      return this.scoreHistoryRepository.find({
-        where: {
-          date: today
-        }
-      })
+    async findLatest() : Promise<ScoreHistory[]> {
+      const maxDateRecord = await this.scoreHistoryRepository
+          .createQueryBuilder('scoreHistory')
+          .orderBy('scoreHistory.date', 'DESC') // 按日期字段降序排序
+          .getOne();
+      const maxDate = maxDateRecord.date
+      return await this.scoreHistoryRepository
+          .createQueryBuilder('score_history')
+          .where('score_history.date = :maxDate', {maxDate: maxDate})
+          .andWhere('score_history.partnerId IN (:...partnerIds)', {partnerIds: [1, 2]})
+          .getMany()
     }
 
 }
