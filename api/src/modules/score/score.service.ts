@@ -96,16 +96,16 @@ export class ScoreService {
       const found = latest.find(e => e.partnerId == addScoreDto.partnerId)
       console.log('found', found, found.partnerId, addScoreDto.partnerId)
       if (!found) {
-        return
+        const createScoreDto: CreateScoreDto = {
+          date: addScoreDto.date,
+          partnerId: addScoreDto.partnerId,
+          score: found.score + parseInt(String(addScoreDto.add))
+        }
+        await this.create(createScoreDto)
       }
-      const createScoreDto: CreateScoreDto = {
-        date: addScoreDto.date,
-        partnerId: addScoreDto.partnerId,
-        score: found.score + parseInt(String(addScoreDto.add))
-      }
-      await this.create(createScoreDto)
 
       const another = latest.find(e => e.partnerId != addScoreDto.partnerId)
+      console.log('another', another)
       const createDto: CreateScoreDto = {
         date: addScoreDto.date,
         partnerId: another.partnerId,
