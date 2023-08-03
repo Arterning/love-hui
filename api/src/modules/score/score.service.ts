@@ -93,8 +93,8 @@ export class ScoreService {
     if (!entity) {
       const latest = await this.findLatest()
       console.log(latest)
-      const found = latest.find(e => e.partnerId === addScoreDto.partnerId)
-      console.log('@@', found)
+      const found = latest.find(e => e.partnerId == addScoreDto.partnerId)
+      console.log('found', found, found.partnerId, addScoreDto.partnerId)
       if (!found) {
         return
       }
