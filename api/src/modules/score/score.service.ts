@@ -103,7 +103,15 @@ export class ScoreService {
         partnerId: addScoreDto.partnerId,
         score: found.score + parseInt(String(addScoreDto.add))
       }
-      return await this.create(createScoreDto)
+      await this.create(createScoreDto)
+
+      const another = latest.find(e => e.partnerId != addScoreDto.partnerId)
+      const createDto: CreateScoreDto = {
+        date: addScoreDto.date,
+        partnerId: another.partnerId,
+        score: another.score
+      }
+      return await this.create(createDto)
     } else {
       //由于没有使用Pipe 导致这里接受到的是字符串 而不是number
       const score = parseInt(String(addScoreDto.add)) + entity.score
