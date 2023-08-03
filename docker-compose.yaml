@@ -1,6 +1,14 @@
 version: '3'
 
 services:
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx-data/conf.d:/etc/nginx/conf.d
+      - ./nginx-data/ssl:/etc/nginx/ssl
   mysql:
     image: mysql:8
     restart: always
