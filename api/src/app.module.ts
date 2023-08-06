@@ -21,9 +21,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       //⭐还有请记住这个仅用于开发模式
       synchronize: true,
       logging: true, // 启用查询日志
-
     }),
-    UploadModule, ScoreModule],
+    UploadModule,
+    ScoreModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

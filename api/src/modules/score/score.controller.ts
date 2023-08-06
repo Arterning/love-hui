@@ -1,8 +1,16 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ScoreService } from './score.service';
 import { CreateScoreDto } from './dto/create-score.dto';
 import { UpdateScoreDto } from './dto/update-score.dto';
-import {AddScoreDto} from "./dto/add-score.dto";
+import { AddScoreDto } from './dto/add-score.dto';
 
 @Controller('score')
 export class ScoreController {
@@ -25,16 +33,15 @@ export class ScoreController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    console.log('这是一个陷阱')
+    console.log('这是一个陷阱');
     return this.scoreService.findOne(+id);
   }
 
   @Get('chart/find')
   findChartData() {
-    console.log('findChartData')
+    console.log('findChartData');
     return this.scoreService.findChartData();
   }
-
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateScoreDto: UpdateScoreDto) {

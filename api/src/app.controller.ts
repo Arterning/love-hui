@@ -12,14 +12,11 @@ export class AppController {
 
   @Get('welcome')
   getWelcome(): string {
-    return "welcome you";
+    return 'welcome you';
   }
-
 
   @Get('love')
   getLove(): string {
-    return "love you";
+    return 'love you';
   }
-
-
 }

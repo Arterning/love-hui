@@ -1,9 +1,7 @@
 export class CreateScoreDto {
+  partnerId: string;
 
-    partnerId: string
+  score: number;
 
-    score: number
-
-    date: Date
-
+  date: Date;
 }
