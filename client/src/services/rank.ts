@@ -1,4 +1,4 @@
-import {fetchJson} from "@/utils/fetch";
+import {fetchJson} from "@/utils/fetch"
 
 // 类型
 

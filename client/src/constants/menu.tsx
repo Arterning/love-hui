@@ -5,7 +5,7 @@ import {
   UserOutlined,
   InsertRowLeftOutlined, AppleFilled, GithubFilled, TwitterCircleFilled, RocketFilled,
 } from '@ant-design/icons'
-import {HeartIcon, PandaIcon} from "@/components/icon";
+import {HeartIcon, PandaIcon} from "@/components/icon"
 
 export const HOME_SIDER_MENU_LIST = [
   {

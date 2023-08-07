@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Button, Table, Tag} from "antd"
-import useKeepState from "use-keep-state";
-import {serviceGetRank} from "@/services/rank";
-import RankChart from "@/views/rank/RankChart";
+import useKeepState from "use-keep-state"
+import {serviceGetRank} from "@/services/rank"
+import RankChart from "@/views/rank/RankChart"
 
 const initialState = {
     showCreateTypeModal: false,
@@ -58,7 +58,7 @@ const RankPage: React.FC = () => {
             data.forEach((item: RankData, index: number) => {
                 item.rank = index + 1
                 item.name = item.partnerId == 1 ? '宁哥' : '小慧'
-                item.color = item.partnerId == 1 ? 'orange': 'pink'
+                item.color = item.partnerId == 1 ? 'orange' : 'pink'
             })
             setState({data})
         }).finally(() => {

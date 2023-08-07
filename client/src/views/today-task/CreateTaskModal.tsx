@@ -10,7 +10,7 @@ import {
   Rate, Select
 } from 'antd'
 import dayjs from "dayjs"
-import {PARTNER} from "@/views/today-task/enum";
+import {PARTNER} from "@/views/today-task/enum"
 const { Option } = Select
 
 type Props = {

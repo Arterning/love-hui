@@ -1,7 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
-import * as Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
-import {serviceGetRankHistory} from "@/services/rankHistory";
+import React, {useEffect, useRef, useState} from 'react'
+import * as Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
+import {serviceGetRankHistory} from "@/services/rankHistory"
 
 // The wrapper exports only a default component that at the same time is a
 // namespace for the related Props interface (HighchartsReact.Props) and
@@ -18,10 +18,10 @@ const mock_ning = [[1689177600000, 20.52], [1690128000000, 17.36], [169087853946
 // example).
 
 const RankChart = (props: HighchartsReact.Props) => {
-    const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
+    const chartComponentRef = useRef<HighchartsReact.RefObject>(null)
     const [xiaohui, setXiaohui] = useState([])
     const [ning, setNing] = useState([])
-    useEffect(()=> {
+    useEffect(() => {
         serviceGetRankHistory().then(res => {
             const data = res.data
             console.log(data)
@@ -68,7 +68,7 @@ const RankChart = (props: HighchartsReact.Props) => {
             data: ning,
             type:'area'
         }]
-    };
+    }
     return (
         <HighchartsReact
             highcharts={Highcharts}
@@ -76,7 +76,7 @@ const RankChart = (props: HighchartsReact.Props) => {
             ref={chartComponentRef}
             {...props}
         />
-    );
-};
+    )
+}
 
-export default RankChart;
+export default RankChart

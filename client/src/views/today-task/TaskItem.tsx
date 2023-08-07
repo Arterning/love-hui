@@ -8,9 +8,9 @@ import {
   Popconfirm
 } from 'antd'
 import {FORMAT_DATE, formatDateTime} from '@/utils'
-import {PARTNER} from "@/views/today-task/enum";
-import {AddScoreType, serviceUpdateScore} from "@/services/rank";
-import dayjs from "dayjs";
+import {PARTNER} from "@/views/today-task/enum"
+import {AddScoreType, serviceUpdateScore} from "@/services/rank"
+import dayjs from "dayjs"
 
 interface Props {
   data: Record<string, any>,
@@ -50,7 +50,7 @@ const TaskItem: React.FC<Props> = ({ data, reloadData, onClick }) => {
     return found?.name
   }
 
-  const dynamicClassName = data.partner == 1 ? 'task-component bg1' : 'task-component bg2';
+  const dynamicClassName = data.partner == 1 ? 'task-component bg1' : 'task-component bg2'
   return (
     <Card
       title={`${formatPartner(data.partner)}的任务`}
