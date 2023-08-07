@@ -26,6 +26,12 @@ const InnerMessage = lazy(() => import('@/views/setting/inner-message'))
 const Notification = lazy(() => import('@/views/setting/notification'))
 const Account = lazy(() => import('@/views/setting/account'))
 
+/**
+ * 这个是tailwind-css 测试页面
+ * 必须加上lazy 否则会污染原来的样式
+ */
+const Test = lazy(() => import('@/views/test/Test'))
+
 export function MainRoutes() {
   const _Login = <PrivateRoute element={Login} meta={{
     title: '登录'
@@ -207,6 +213,10 @@ export function MainRoutes() {
           }} />
         },
       ]
+    },
+    {
+      path: '/test',
+      element: <Test/>
     },
     {
       path: '*',
