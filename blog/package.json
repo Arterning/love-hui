@@ -1,5 +1,7 @@
 {
   "private": true,
+  "name": "xiaohui-blog",
+  "author": "arterning",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
