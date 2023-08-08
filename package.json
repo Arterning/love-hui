@@ -9,6 +9,7 @@
     "dev:server": "pnpm run --dir server dev",
     "dev:api": "pnpm run --dir api start:dev",
     "dev:client": "pnpm run --dir client dev",
+    "dev:blog": "pnpm run --dir blog dev",
     "start": "concurrently 'pnpm:start:*'",
     "start:server": "pnpm run --dir server start",
     "start:client": "pnpm run --dir client start",
