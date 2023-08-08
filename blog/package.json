@@ -3,7 +3,7 @@
   "name": "xiaohui-blog",
   "author": "arterning",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 5000",
     "build": "next build",
     "start": "next start"
   },
