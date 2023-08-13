@@ -49,9 +49,9 @@ module.exports = appInfo => {
 
   // github配置信息 [可选, 默认使用作者的信息, 但启动端口不可修改]
   config.passportGithub = {
-    key: '37f60764673e98049f3f',
-    secret: '04286f1e8ccd5800ab727138d43704067e44824b',
-    callbackURL: 'http://localhost:7001/api/passport/github/callback',
+    key: '736a77b74280ce7f52f2',
+    secret: 'c6c5360bc7fae13443cc760e020295220425fe6a',
+    callbackURL: 'http://www.arterning.site/api/passport/github/callback',
     redirectURL: '/',
     successRedirect: '/api/passport/github/success',
     failureRedirect: '/?state=0'
