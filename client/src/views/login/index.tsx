@@ -204,12 +204,12 @@ export default function () {
             <GithubOutlined onClick={goGithubAuth} />
           </div>
           <Button
-            type="primary"
-            style={{width:'80px', marginTop: '20px', marginLeft:'250px', background:'pink' , opacity: 0.8, color: 'deeppink'}}
-            size="large"
-            loading={loading}
-            block
-            onClick={handleSubmit}
+              type="primary"
+              size="large"
+              className={loading ? "login-button-loading" : "login-button"}
+              loading={loading}
+              block
+              onClick={handleSubmit}
           >
             {loading ? '登 录 中...' : '登 录'}
           </Button>

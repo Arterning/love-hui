@@ -25,6 +25,25 @@
     animation: octocat 1.1s linear infinite;
   }
 
+  .login-button {
+    //width:'80px', marginTop: '20px', marginLeft:'250px', background:'pink' , opacity: 0.8, color: 'deeppink'
+    width: 80px;
+    margin-top: 20px;
+    margin-left: 250px;
+    background-color: pink;
+    opacity: 0.8;
+    color: deeppink;
+  }
+
+  .login-button-loading {
+    width: 150px;
+    margin-top: 20px;
+    margin-left: 250px;
+    background-color: pink;
+    opacity: 0.8;
+    color: deeppink;
+  }
+
   .svg-wrapper {
     z-index: 10001;
     fill: #20a0ff;
