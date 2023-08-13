@@ -77,9 +77,11 @@ export default function () {
     }
   }
 
+  //github第三方登录
   const goGithubAuth = () => {
     setLoading(true)
     const url = `https://github.com/login/oauth/authorize?response_type=code&redirect_uri=${config.github.callbackURL}&client_id=${config.github.clientId}&scope=read:user`
+    console.log(url)
     window.location.replace(url)
   }
 

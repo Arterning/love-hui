@@ -7,6 +7,8 @@ module.exports = class App {
 
   passport() {
     const app = this.app
+
+    //localHandler
     const localHandler = async (ctx, { username, password }) => {
       const loginName = username
       try {
@@ -32,6 +34,7 @@ module.exports = class App {
       return user
     }
 
+    //githubHandler
     const githubHandler = async (ctx, user) => {
       user = Object.assign({}, user, { _profile: user.profile._json })
       const userInfo = {

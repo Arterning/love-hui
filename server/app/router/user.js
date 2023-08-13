@@ -16,6 +16,7 @@ module.exports = app => {
     failureRedirect: config.passportGithub.failureRedirect,
   })
 
+  //github路由拦截
   router.get('/api/passport/github/callback', github)
   router.get('/api/passport/github/success', controller.user.passportSuccessCallback)
   router.post('/api/passport/local', localStrategy)

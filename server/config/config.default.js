@@ -49,8 +49,8 @@ module.exports = appInfo => {
 
   // github配置信息 [可选, 默认使用作者的信息, 但启动端口不可修改]
   config.passportGithub = {
-    key: '489b39e1f91d934128c8',
-    secret: '9ec2cf95bee7f1451792ce8124075cce7b66450d',
+    key: '37f60764673e98049f3f',
+    secret: '04286f1e8ccd5800ab727138d43704067e44824b',
     callbackURL: 'http://localhost:7001/api/passport/github/callback',
     redirectURL: '/',
     successRedirect: '/api/passport/github/success',
@@ -63,7 +63,7 @@ module.exports = appInfo => {
     port: 25,
     secure: false,
     auth: {
-      user: 'tomatowork@2980.com',
+      user: 'ninghuang@gmail.com',
       pass: 'a123456'
     }
   }
