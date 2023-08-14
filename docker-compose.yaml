@@ -7,7 +7,6 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx-data/conf.d:/etc/nginx/conf.d
       - ./nginx-data/ssl:/etc/nginx/ssl
       - ./nginx-data/html:/usr/share/nginx/html
   mysql:
