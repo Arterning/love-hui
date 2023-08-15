@@ -10,7 +10,7 @@
     height: 250px;
     margin-bottom: 25px;
   }
-  
+
   .item-text {
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -39,8 +39,8 @@
   $colors: #f50 #34bfa3 #36a3f7 #40c9c6;
   //$background-images: url(../../assets/img/common/user-poster.png) url(../../assets/img/common/user-poster.png) url(../../assets/img/common/user-poster.png) url(../../assets/img/common/user-poster.png);
   .icon svg {
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 80px;
   }
 
   .ant-col {
@@ -71,9 +71,10 @@
 
   .block-item {
     display: flex;
-    padding: 20px 20px 20px 15px;
-    background: #fff;
+    padding: 20px 20px 20px 20px;
+    background: rgba(255, 182, 193, 0.5);
     cursor: pointer;
+    border-radius: 6%;
 
     .icon {
       flex: 1;
@@ -121,7 +122,7 @@
 .amount-chart {
   position: relative;
   margin: 0 20px;
-  background: #fff;
+  background: rgba(255, 182, 193, 0.5);
 
   .title {
     display: flex;
